@@ -18,8 +18,6 @@ export default function HomeButtons(props){
 
 
 
-
-
     return(
         <Container style={{float:"left",marginTop:20}}>
             <Row>
@@ -40,7 +38,7 @@ export default function HomeButtons(props){
                 <Col md={{ span: 2, offset: 1 }}>
                     <Button className="homebutton" style={{backgroundColor:"transparent",color:"#8888a7",borderColor:"#cccccc",padding:"1rem",fontWeight:700,width:270} }>
                         <BsGift size="30" color="#ff6000" style={{marginRight:30}} />
-                        Promotions
+                        Discounts
                         <MdKeyboardArrowRight size="25" style={{marginLeft:30}}/>
                     </Button>
                 </Col>

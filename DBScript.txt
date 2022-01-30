@@ -1,0 +1,6 @@
+drop user if exists 'pcc'@'localhost';
+drop database if exists componentspc;
+create database componentspc;
+CREATE USER 'pcc'@'localhost' IDENTIFIED BY 'test123';
+GRANT ALL PRIVILEGES ON componentspc.* TO 'pcc'@'localhost';
+FLUSH PRIVILEGES;

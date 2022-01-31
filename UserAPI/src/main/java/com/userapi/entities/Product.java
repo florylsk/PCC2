@@ -37,19 +37,16 @@ public class Product {
     @Column(nullable = false)
     private String brand;
 
+    @Column(nullable = false)
+    private boolean isRecommended;
+
+    @Column(nullable = false)
+    private boolean isInteresting;
+
+
     public Product(){}
 
-    public Product(String name, BigDecimal price, MainCategory mainCategory, SubCategory subCategory, byte[] mainImage, byte[] secondaryImage, String brand) {
-        this.name = name;
-        this.price = price;
-        this.mainCategory = mainCategory;
-        this.subCategory = subCategory;
-        this.mainImage = mainImage;
-        this.secondaryImage = secondaryImage;
-        this.brand = brand;
-    }
-
-    public Product(long id, String name, BigDecimal price, MainCategory mainCategory, SubCategory subCategory, byte[] mainImage, byte[] secondaryImage, String brand) {
+    public Product(long id, String name, BigDecimal price, MainCategory mainCategory, SubCategory subCategory, byte[] mainImage, byte[] secondaryImage, String brand, boolean isRecommended, boolean isInteresting) {
         this.id = id;
         this.name = name;
         this.price = price;
@@ -58,6 +55,20 @@ public class Product {
         this.mainImage = mainImage;
         this.secondaryImage = secondaryImage;
         this.brand = brand;
+        this.isRecommended = isRecommended;
+        this.isInteresting = isInteresting;
+    }
+
+    public Product(String name, BigDecimal price, MainCategory mainCategory, SubCategory subCategory, byte[] mainImage, byte[] secondaryImage, String brand, boolean isRecommended, boolean isInteresting) {
+        this.name = name;
+        this.price = price;
+        this.mainCategory = mainCategory;
+        this.subCategory = subCategory;
+        this.mainImage = mainImage;
+        this.secondaryImage = secondaryImage;
+        this.brand = brand;
+        this.isRecommended = isRecommended;
+        this.isInteresting = isInteresting;
     }
 
     public long getId() {
@@ -124,6 +135,23 @@ public class Product {
         this.brand = brand;
     }
 
+    public boolean isRecommended() {
+        return isRecommended;
+    }
+
+    public void setRecommended(boolean recommended) {
+        isRecommended = recommended;
+    }
+
+    public boolean isInteresting() {
+        return isInteresting;
+    }
+
+    public void setInteresting(boolean interesting) {
+        isInteresting = interesting;
+    }
+
+
     @Override
     public String toString() {
         return "Product{" +
@@ -135,6 +163,8 @@ public class Product {
                 ", mainImage=" + Arrays.toString(mainImage) +
                 ", secondaryImage=" + Arrays.toString(secondaryImage) +
                 ", brand='" + brand + '\'' +
+                ", isRecommended=" + isRecommended +
+                ", isInteresting=" + isInteresting +
                 '}';
     }
 }

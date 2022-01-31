@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 
 public interface ProductRepository extends JpaRepository<Product,Long> {
@@ -17,4 +18,10 @@ public interface ProductRepository extends JpaRepository<Product,Long> {
     @Modifying
     @Query("delete from product p where p.name=?1")
     public void deleteProductByName(String name);
+
+    @Query("select p from product p where p.isInteresting=true")
+    public List<Product> findInterestingProducts();
+
+    @Query("select p from product p where p.isRecommended=true")
+    public List<Product> findRecommendedProducts();
 }

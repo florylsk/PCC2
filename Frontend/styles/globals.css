@@ -31,3 +31,29 @@ hr {
   color: #4d4c4c !important;
   background-color: #e1dede !important;
 }
+
+h3::after{
+  content: "";
+  display: block;
+  width: 2.5rem;
+  height: 2px;
+  background: #ff6000;
+  margin: 0.74rem 0 0;
+}
+.footerButton{
+  font-size: 14.5px!important;
+}
+
+.footerButton:hover{
+  background-color: #e5e3e3 !important;
+}
+
+
+.dropdown-toggle svg{
+  display: none;
+}
+
+.dropdown-toggle::after{
+  color: rgba(9, 9, 9, 0.84);
+  margin-left: 11em!important;
+}

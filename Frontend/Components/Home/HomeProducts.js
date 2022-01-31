@@ -51,7 +51,7 @@ export default function HomeProducts(props){
                     <span className="visually-hidden">Fetching products...</span>
                   </Spinner>
                   :
-                  props.products.map((product) =>(
+                  props.RecommendedProducts.map((product) =>(
                       <Col key={product.name}>
                           <Image height="217" width="217" src={"data:image/png;base64, "+product.mainImage}/>
                           <p style={{marginTop:20,marginLeft:40,fontSize:13,color:"#888"}}>{product.name.split(/\s+/).slice(0,4).join(" ")}</p>
@@ -59,10 +59,26 @@ export default function HomeProducts(props){
                       </Col>
                   ))
 
-
               }
-
           </Row>
+
+          <Row style={{marginTop:50}}>
+              <h3 style={{fontWeight:300}}><span className=" d-inline" style={{fontWeight:700,color:"#444"}}>Interesting </span> Products</h3>
+              {props.isLoading ?
+                  <Spinner animation="border" role="status">
+                      <span className="visually-hidden">Fetching products...</span>
+                  </Spinner>
+                  :
+                  props.InterestingProducts.map((product) =>(
+                      <Col key={product.name}>
+                          <Image height="217" width="217" src={"data:image/png;base64, "+product.mainImage}/>
+                          <p style={{marginTop:20,marginLeft:40,fontSize:13,color:"#888"}}>{product.name.split(/\s+/).slice(0,4).join(" ")}</p>
+                          <p className="fw-bold text-center" style={{color:"#444",fontWeight:700,fontSize:"1.33rem"}} >{product.price + "€"} <span style={{color:"#989898",textDecoration:"line-through",fontSize:15,fontWeight:400}}>{((product.price *1.1).toString().substring(0,4))+" €"}</span></p>
+                      </Col>
+                  ))
+              }
+          </Row>
+
       </Container>
     );
 

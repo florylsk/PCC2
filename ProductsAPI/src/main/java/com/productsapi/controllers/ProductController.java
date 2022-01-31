@@ -20,9 +20,25 @@ public class ProductController {
 
 
     @GetMapping("/products")
-    public ResponseEntity<List<Product>> getAllProducts(){
-        List<Product> products = productRepository.findAll();
-        return new ResponseEntity<>(products, HttpStatus.OK);
+    public ResponseEntity<List<Product>> getAllProducts(@RequestParam(required = false,name = "type") String type){
+        if(type==null){
+            List<Product> products = productRepository.findAll();
+            return new ResponseEntity<>(products, HttpStatus.OK);
+        }
+        else{
+            if(type.equals("recommended")){
+                List<Product> products=productRepository.findRecommendedProducts();
+                return new ResponseEntity<>(products,HttpStatus.OK);
+            }
+            else if (type.equals("interesting")){
+                List<Product> products=productRepository.findInterestingProducts();
+                return new ResponseEntity<>(products,HttpStatus.OK);
+            }
+            else{
+                return new ResponseEntity<>(null,HttpStatus.BAD_REQUEST);
+            }
+        }
+
     }
 
     @PostMapping("/products")

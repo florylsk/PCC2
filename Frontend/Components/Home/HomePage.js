@@ -11,6 +11,8 @@ import {isLocalURL} from "next/dist/shared/lib/router/router";
 import Footer
     from "../Footer";
 
+import Head from "next/head"
+
 class HomePage extends React.Component{
 
     constructor(props) {
@@ -110,6 +112,9 @@ class HomePage extends React.Component{
 
         return(
             <Container>
+                <Head>
+                    <title>ComponentsPC</title>
+                </Head>
                 <NavBar />
                 <HomeButtons />
                 <HomeProducts RecommendedProducts={this.state.RecommendedProducts} InterestingProducts={this.state.InterestingProducts} isLoading={this.state.isLoading} />

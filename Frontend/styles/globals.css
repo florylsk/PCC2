@@ -57,3 +57,13 @@ h3::after{
   color: rgba(9, 9, 9, 0.84);
   margin-left: 11em!important;
 }
+
+.btn:focus {
+  box-shadow: none!important;
+}
+
+#HowToBuyBody{
+  background:linear-gradient(
+          135deg
+          ,#ff6000,#fec13d);;
+}

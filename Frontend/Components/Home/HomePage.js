@@ -28,6 +28,12 @@ class HomePage extends React.Component{
         }catch(error){
             errorHappened=true;
         }
+        if (response != null){
+            if(response.status != 200){
+                errorHappened=true;
+            }
+        }
+
         let body=null;
         let RecommendedProducts=[]
         if (!errorHappened){
@@ -68,8 +74,14 @@ class HomePage extends React.Component{
         let errorHappened=false;
         try{
             response = await fetch("http://localhost:8082/api/v1/products?type=recommended");
-        }catch(error){
+        }
+        catch(error){
             errorHappened=true;
+        }
+        if (response != null){
+            if(response.status != 200){
+                errorHappened=true;
+            }
         }
         let body=null;
         let RecommendedProducts=[]

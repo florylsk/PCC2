@@ -1,10 +1,12 @@
 import {
+    Button,
     Col,
     Container,
     Image,
     Row,
     Spinner
 } from "react-bootstrap";
+import Link from "next/link"
 
 
 
@@ -52,10 +54,16 @@ export default function HomeProducts(props){
                   </Spinner>
                   :
                   props.RecommendedProducts.map((product) =>(
-                      <Col key={product.name}>
-                          <Image height="217" width="217" src={"data:image/png;base64, "+product.mainImage}/>
-                          <p style={{marginTop:20,marginLeft:40,fontSize:13,color:"#888"}}>{product.name.split(/\s+/).slice(0,4).join(" ")}</p>
-                          <p className="fw-bold text-center" style={{color:"#444",fontWeight:700,fontSize:"1.33rem"}} >{product.price + "€"} <span style={{color:"#989898",textDecoration:"line-through",fontSize:15,fontWeight:400}}>{((product.price *1.1).toString().substring(0,5))+" €"}</span></p>
+                      <Col key={product.id}>
+                          <Link href={"/products/"+(product.id)}>
+                              <a>
+                                  <Image height="217" width="217" src={"data:image/png;base64, "+product.mainImage}/>
+                                  <p style={{marginTop:20,marginLeft:40,fontSize:13,color:"#888"}}>{product.name.split(/\s+/).slice(0,4).join(" ")}</p>
+                                  <p className="fw-bold text-center" style={{color:"#444",fontWeight:700,fontSize:"1.33rem"}} >{product.price + "€"} <span style={{color:"#989898",textDecoration:"line-through",fontSize:15,fontWeight:400}}>{((Math.floor(product.price *1.1)))+","+(Math.random().toString().substring(2,4))+"€"}</span></p>
+                              </a>
+
+                          </Link>
+
                       </Col>
                   ))
 
@@ -71,9 +79,13 @@ export default function HomeProducts(props){
                   :
                   props.InterestingProducts.map((product) =>(
                       <Col key={product.name}>
-                          <Image height="217" width="217" src={"data:image/png;base64, "+product.mainImage}/>
-                          <p style={{marginTop:20,marginLeft:40,fontSize:13,color:"#888"}}>{product.name.split(/\s+/).slice(0,4).join(" ")}</p>
-                          <p className="fw-bold text-center" style={{color:"#444",fontWeight:700,fontSize:"1.33rem"}} >{product.price + "€"} <span style={{color:"#989898",textDecoration:"line-through",fontSize:15,fontWeight:400}}>{((product.price *1.1).toString().substring(0,4))+" €"}</span></p>
+                          <Link href={"/products/"+(product.id)}>
+                                <a>
+                                    <Image height="217" width="217" src={"data:image/png;base64, "+product.mainImage}/>
+                                    <p style={{marginTop:20,marginLeft:40,fontSize:13,color:"#888"}}>{product.name.split(/\s+/).slice(0,4).join(" ")}</p>
+                                    <p className="fw-bold text-center" style={{color:"#444",fontWeight:700,fontSize:"1.33rem"}} >{product.price + "€"} <span style={{color:"#989898",textDecoration:"line-through",fontSize:15,fontWeight:400}}>{((Math.floor(product.price *1.1)))+","+(Math.random().toString().substring(2,4))+"€"}</span></p>
+                                </a>
+                          </Link>
                       </Col>
                   ))
               }

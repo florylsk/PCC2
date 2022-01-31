@@ -75,7 +75,7 @@ class NavBar extends React.Component{
                         </Nav>
 
                     </Navbar.Collapse>
-                    <p style={{marginBottom:30, marginRight:300}}>Your <span className="fw-bold d-inline" >techonology online shop</span> leader on price, quality and service</p>
+                    {!this.props.product ? <p style={{marginBottom:30, marginRight:300}}>Your <span className="fw-bold d-inline" >techonology online shop</span> leader on price, quality and service</p> : null}
                     <Nav>
                     <Nav.Link href="#" >
                         <p  style={{marginBottom:30,fontWeight:400}}>&nbsp;January Offers</p>

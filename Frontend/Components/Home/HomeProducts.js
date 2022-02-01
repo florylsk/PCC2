@@ -25,8 +25,13 @@ export default function HomeProducts(props){
                     <p className="fw-bold" style={{marginTop:20,marginLeft:40,color:"#444"}}>Laptops</p>
                 </Col>
                 <Col>
-                    <img src="/images/familia-pccom.jpg" />
-                    <p className="fw-bold" style={{marginTop:20,marginLeft:40,color:"#444"}}>PccCom</p>
+                    <Link href="/products/category/components">
+                        <a>
+                            <img src="/images/familia-pccom.jpg" />
+                            <p className="fw-bold" style={{marginTop:20,marginLeft:40,color:"#444"}}>Components</p>
+                        </a>
+                    </Link>
+
                 </Col>
                 <Col>
                     <Image src="/images/familia-altavoces.jpg" />

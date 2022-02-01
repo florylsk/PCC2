@@ -98,3 +98,8 @@ a{
   padding: 0 !important;
 }
 
+::selection {
+  color:white!important;
+  background: #ff6000!important;
+}
+

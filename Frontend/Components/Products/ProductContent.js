@@ -80,7 +80,7 @@ class ProductContent extends React.Component{
     render() {
 
         return(
-            <Container>
+            <Container fluid>
                 <Head>
                     <title>{this.state.product === null ? "ComponentsPC" : (this.state.product.name)}</title>
                 </Head>

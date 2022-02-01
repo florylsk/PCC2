@@ -17,7 +17,7 @@ export default function HomeProducts(props){
 
 
     return(
-      <Container style={{marginTop:170,width:1200}}>
+      <Container style={{marginTop:100,width:1200}}>
             <Row>
                 <h3 style={{fontWeight:300}}><span className=" d-inline" style={{fontWeight:700,color:"#444"}}>Most Relevant </span> Categories</h3>
                 <Col>
@@ -33,8 +33,13 @@ export default function HomeProducts(props){
                     <p className="fw-bold" style={{marginTop:20,marginLeft:40,color:"#444"}}>Speakers</p>
                 </Col>
                 <Col>
-                    <Image src="/images/familia-perifericos.jpg" />
-                    <p className="fw-bold" style={{marginTop:20,marginLeft:30,color:"#444"}}>Peripherals</p>
+                    <Link href="/products/category/peripherals">
+                        <a>
+                            <Image src="/images/familia-perifericos.jpg" />
+                            <p className="fw-bold" style={{marginTop:20,marginLeft:30,color:"#444"}}>Peripherals</p>
+                        </a>
+                    </Link>
+
                 </Col>
                 <Col>
                     <Image src="/images/familia-tablets.jpg" />
@@ -59,7 +64,7 @@ export default function HomeProducts(props){
                               <a>
                                   <Image height="217" width="217" src={"data:image/png;base64, "+product.mainImage}/>
                                   <p style={{marginTop:20,marginLeft:40,fontSize:13,color:"#888"}}>{product.name.split(/\s+/).slice(0,4).join(" ")}</p>
-                                  <p className="fw-bold text-center" style={{color:"#444",fontWeight:700,fontSize:"1.33rem"}} >{product.price + "€"} <span style={{color:"#989898",textDecoration:"line-through",fontSize:15,fontWeight:400}}>{((Math.floor(product.price *1.1)))+","+(Math.random().toString().substring(2,4))+"€"}</span></p>
+                                  <p className="fw-bold text-center" style={{color:"#444",fontWeight:700,fontSize:"1.33rem"}} >{product.price + "€"} <span style={{color:"#989898",textDecoration:"line-through",fontSize:15,fontWeight:400}}>{((Math.floor(product.price *1.1)))+".99€"}</span></p>
                               </a>
 
                           </Link>
@@ -83,7 +88,7 @@ export default function HomeProducts(props){
                                 <a>
                                     <Image height="217" width="217" src={"data:image/png;base64, "+product.mainImage}/>
                                     <p style={{marginTop:20,marginLeft:40,fontSize:13,color:"#888"}}>{product.name.split(/\s+/).slice(0,4).join(" ")}</p>
-                                    <p className="fw-bold text-center" style={{color:"#444",fontWeight:700,fontSize:"1.33rem"}} >{product.price + "€"} <span style={{color:"#989898",textDecoration:"line-through",fontSize:15,fontWeight:400}}>{((Math.floor(product.price *1.1)))+","+(Math.random().toString().substring(2,4))+"€"}</span></p>
+                                    <p className="fw-bold text-center" style={{color:"#444",fontWeight:700,fontSize:"1.33rem"}} >{product.price + "€"} <span style={{color:"#989898",textDecoration:"line-through",fontSize:15,fontWeight:400}}>{((Math.floor(product.price *1.1)))+".99€"}</span></p>
                                 </a>
                           </Link>
                       </Col>

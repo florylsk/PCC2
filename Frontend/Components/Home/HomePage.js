@@ -123,7 +123,7 @@ class HomePage extends React.Component{
     render() {
 
         return(
-            <Container>
+            <Container fluid>
                 <Head>
                     <title>ComponentsPC</title>
                 </Head>

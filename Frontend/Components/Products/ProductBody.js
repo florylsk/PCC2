@@ -46,7 +46,7 @@ export default function ProductBody(props){
                                 <div>
                                     <p className="d-inline" style={{fontSize:11,color:"#bbb",fontWeight:700, marginLeft:20}}>Without IVA</p>
                                 </div>
-                                <p className="d-inline" style={{fontSize:19,color:"#888",marginLeft:20}}>{props.product === null ? <Spinner /> : (((Math.floor(props.product.price *0.79)))+","+(Math.random().toString().substring(2,4))+"€")}</p>
+                                <p className="d-inline" style={{fontSize:19,color:"#888",marginLeft:20}}>{props.product === null ? <Spinner /> : (((Math.floor(props.product.price *0.79)))+"."+(Math.random().toString().substring(2,4))+"€")}</p>
                             </div>
                         </Col>
                         <Col xs={2}>
@@ -54,7 +54,7 @@ export default function ProductBody(props){
                                 <div>
                                     <p className="d-inline" style={{fontSize:11,color:"#bbb",fontWeight:700, marginLeft:20}}>PVP</p>
                                 </div>
-                                <p className="d-inline" style={{fontSize:19,color:"#888",marginLeft:20,textDecoration:"line-through"}}>{props.product === null ? <Spinner /> : ((((Math.floor(props.product.price *1.2)))+","+(Math.random().toString().substring(2,4))+"€"))}</p>
+                                <p className="d-inline" style={{fontSize:19,color:"#888",marginLeft:20,textDecoration:"line-through"}}>{props.product === null ? <Spinner /> : ((((Math.floor(props.product.price *1.2)))+".99€"))}</p>
                             </div>
                         </Col>
                         <Col xs={3}>

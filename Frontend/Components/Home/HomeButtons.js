@@ -19,7 +19,7 @@ export default function HomeButtons(props){
 
 
     return(
-        <Container style={{float:"left",marginTop:20}}>
+        <Container style={{marginTop:20}}>
             <Row>
                 <Col md={{ span: 2, offset: 0 }}>
                     <Button className="homebutton" style={{backgroundColor:"transparent",color:"#8888a7",borderColor:"#cccccc",padding:"1rem",fontWeight:700,width:270} }>

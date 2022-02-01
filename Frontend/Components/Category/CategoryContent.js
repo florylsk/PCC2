@@ -13,13 +13,13 @@ class CategoryContent extends React.Component{
 
     constructor(props) {
         super(props);
-        this.state={CategoryProducts:[],isLoading:true}
+        this.state={Subcategories:[],isLoading:true}
     }
     async componentDidMount(){
         let response=null;
         let errorHappened=false;
         try{
-            response = await fetch("http://localhost:8082/api/v1/products?maincategory="+this.props.categoryName);
+            response = await fetch("http://localhost:8082/api/v1/subcategories?maincategory="+this.props.categoryName);
         }catch(error){
             errorHappened=true;
         }
@@ -30,12 +30,12 @@ class CategoryContent extends React.Component{
         }
 
         let body=null;
-        let CategoryProducts=[]
+        let Subcategories=[]
         if (!errorHappened){
             body = await response.json();
 
             body.forEach(element =>{
-                CategoryProducts.push(element)
+                Subcategories.push(element)
             });
         }
         this.timerID = setInterval(
@@ -43,19 +43,19 @@ class CategoryContent extends React.Component{
             100
         )
         if (errorHappened){
-            this.setState({CategoryProducts:[],isLoading:true});
+            this.setState({Subcategories:[],isLoading:true});
         }
         else{
-            this.setState({CategoryProducts:CategoryProducts,isLoading:false});
+            this.setState({Subcategories:Subcategories,isLoading:false});
         }
     }
 
     async checkProducts(){
-        if (this.state.CategoryProducts.length == 0){
+        if (this.state.Subcategories.length == 0){
             let response=null;
             let errorHappened=false;
             try{
-                response = await fetch("http://localhost:8082/api/v1/products?maincategory="+this.props.categoryName);
+                response = await fetch("http://localhost:8082/api/v1/subcategories?maincategory="+this.props.categoryName);
             }catch(error){
                 errorHappened=true;
             }
@@ -66,18 +66,18 @@ class CategoryContent extends React.Component{
             }
 
             let body=null;
-            let CategoryProducts=[]
+            let Subcategories=[]
             if (!errorHappened){
                 body = await response.json();
                 body.forEach(element =>{
-                    CategoryProducts.push(element)
+                    Subcategories.push(element)
                 });
             }
             if (errorHappened){
-                this.setState({CategoryProducts:[],isLoading:true});
+                this.setState({Subcategories:[],isLoading:true});
             }
             else{
-                this.setState({CategoryProducts:CategoryProducts,isLoading:false});
+                this.setState({Subcategories:Subcategories,isLoading:false});
 
             }
         }
@@ -92,7 +92,7 @@ class CategoryContent extends React.Component{
         return(
             <Container fluid>
                 <NavBar />
-                <CategoryBody categoryProducts={this.state.CategoryProducts} isLoading={this.state.isLoading} />
+                <CategoryBody subCategories={this.state.Subcategories} isLoading={this.state.isLoading} />
                 <Footer />
             </Container>
 

@@ -13,6 +13,11 @@ public class SubCategory {
     @Column
     private String name;
 
+    @JoinColumn(nullable = false)
+    @ManyToOne
+    private MainCategory mainCategory;
+
+
     public SubCategory(){}
 
     public SubCategory(String name) {
@@ -23,6 +28,13 @@ public class SubCategory {
         this.id = id;
         this.name = name;
     }
+
+    public SubCategory(String name, MainCategory mainCategory) {
+        this.name = name;
+        this.mainCategory = mainCategory;
+    }
+
+
 
     public long getId() {
         return id;
@@ -40,11 +52,20 @@ public class SubCategory {
         this.name = name;
     }
 
+    public MainCategory getMainCategory() {
+        return mainCategory;
+    }
+
+    public void setMainCategory(MainCategory mainCategory) {
+        this.mainCategory = mainCategory;
+    }
+
     @Override
     public String toString() {
         return "SubCategory{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", mainCategory=" + mainCategory +
                 '}';
     }
 }

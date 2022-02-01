@@ -21,9 +21,16 @@ public class SubCategoryController {
 
 
     @GetMapping("/subcategories")
-    public ResponseEntity<List<SubCategory>> getAllSubCategories(){
-        List<SubCategory> subcategories=subCategoryRepository.findAll();
-        return new ResponseEntity<>(subcategories, HttpStatus.OK);
+    public ResponseEntity<List<SubCategory>> getAllSubCategories(@RequestParam(required = false,name="maincategory") String mainCategory){
+        if (mainCategory==null){
+            List<SubCategory> subcategories=subCategoryRepository.findAll();
+            return new ResponseEntity<>(subcategories, HttpStatus.OK);
+        }
+        else{
+            List<SubCategory> subCategories = subCategoryRepository.findSubcategoriesByMainCategoryName(mainCategory);
+            return new ResponseEntity<>(subCategories,HttpStatus.OK);
+        }
+
     }
 
     @PostMapping("/subcategories")

@@ -45,11 +45,14 @@ class ProductsApiApplicationTests {
 
     @Test
     void populateDatabaseSubCategories(){
+        MainCategory peripherals = mainCategoryRepository.findMainCategoryByName("Peripherals");
+        MainCategory smartphones_and_telephony = mainCategoryRepository.findMainCategoryByName("Smartphones and telephony");
+        MainCategory components = mainCategoryRepository.findMainCategoryByName("Components");
         //SubCategories
-        SubCategory s1 = new SubCategory("Mouses");
-        SubCategory s2 = new SubCategory("Headphones");
-        SubCategory s3 = new SubCategory("CPU Fans");
-        SubCategory s4 = new SubCategory("Smartphones");
+        SubCategory s1 = new SubCategory("Mouses",peripherals);
+        SubCategory s2 = new SubCategory("Headphones",peripherals);
+        SubCategory s3 = new SubCategory("CPU Fans",components);
+        SubCategory s4 = new SubCategory("Smartphones",smartphones_and_telephony);
 
         subCategoryRepository.save(s1);
         subCategoryRepository.save(s2);
@@ -109,31 +112,37 @@ class ProductsApiApplicationTests {
 
     }
 
+    @Test
+    void populateDatabaseMainCategories2(){
+        //MainCategories
+        MainCategory m1 = new MainCategory("Selfcare");
+        mainCategoryRepository.save(m1);
+    }
 
     @Test
     void populateDatabaseSubCategories2(){
+        MainCategory peripherals = mainCategoryRepository.findMainCategoryByName("Peripherals");
+        MainCategory smartphones_and_telephony = mainCategoryRepository.findMainCategoryByName("Smartphones and telephony");
+        MainCategory components = mainCategoryRepository.findMainCategoryByName("Components");
+        MainCategory selfcare = mainCategoryRepository.findMainCategoryByName("Selfcare");
         //SubCategories2
-        SubCategory s1 = new SubCategory("Speakers");
-        SubCategory s2 = new SubCategory("Sterilizers and disinfectants");
-        SubCategory s3 = new SubCategory("Monitors");
-        SubCategory s4 = new SubCategory("Towers");
+        SubCategory s1 = new SubCategory("Speakers",peripherals);
+        SubCategory s2 = new SubCategory("Sterilizers and disinfectants",selfcare);
+        SubCategory s3 = new SubCategory("Monitors",peripherals);
+        SubCategory s4 = new SubCategory("Towers",components);
         subCategoryRepository.save(s1);
         subCategoryRepository.save(s2);
         subCategoryRepository.save(s3);
         subCategoryRepository.save(s4);
     }
 
-    @Test
-    void populateDatabaseMainCategories2(){
-        //MainCategories
-        MainCategory m1 = new MainCategory("Self care and health");
-        mainCategoryRepository.save(m1);
-    }
+
 
     @Test
     void oops(){
+        MainCategory components = mainCategoryRepository.findMainCategoryByName("Components");
         //MainCategories
-        SubCategory s1 = new SubCategory("Hard Drives");
+        SubCategory s1 = new SubCategory("Hard Drives",components);
         subCategoryRepository.save(s1);
     }
 
@@ -143,7 +152,7 @@ class ProductsApiApplicationTests {
         MainCategory m1 = mainCategoryRepository.findMainCategoryByName("Peripherals");
         MainCategory m2 = mainCategoryRepository.findMainCategoryByName("Components");
         MainCategory m3 = mainCategoryRepository.findMainCategoryByName("Smartphones and telephony");
-        MainCategory m4 = mainCategoryRepository.findMainCategoryByName("Self care and health");
+        MainCategory m4 = mainCategoryRepository.findMainCategoryByName("Selfcare");
 
         SubCategory s1 = subCategoryRepository.findSubCategoryByName("Mouses");
         SubCategory s4 = subCategoryRepository.findSubCategoryByName("Smartphones");
@@ -232,6 +241,82 @@ class ProductsApiApplicationTests {
     @Test
     void deleteDatabaseProducts(){
         productRepository.deleteAll();
+    }
+
+    @Test
+    void addImagesToSubcategories() throws IOException {
+        SubCategory s1 = subCategoryRepository.findSubCategoryByName("Mouses");
+        SubCategory s4 = subCategoryRepository.findSubCategoryByName("Smartphones");
+        SubCategory s5 = subCategoryRepository.findSubCategoryByName("Speakers");
+        SubCategory s6 = subCategoryRepository.findSubCategoryByName("Sterilizers and disinfectants");
+        SubCategory s7 = subCategoryRepository.findSubCategoryByName("Monitors");
+        SubCategory s8 = subCategoryRepository.findSubCategoryByName("Towers");
+        SubCategory s9 = subCategoryRepository.findSubCategoryByName("Hard Drives");
+
+        InputStream reader = getClass().getResourceAsStream("/static/ProductImages/familia-teclados-768x504-producto.jpg");
+        byte[] image = new byte[77215];
+        reader.read(image);
+        s1.setImage(image);
+        subCategoryRepository.save(s1);
+
+        reader = getClass().getResourceAsStream("/static/ProductImages/familia-smartphones-768x504-producto.jpg");
+        image = new byte[77215];
+        reader.read(image);
+        s4.setImage(image);
+        subCategoryRepository.save(s4);
+
+        reader = getClass().getResourceAsStream("/static/ProductImages/familia-altavoces-768x504-producto.jpg");
+        image = new byte[77215];
+        reader.read(image);
+        s5.setImage(image);
+        subCategoryRepository.save(s5);
+
+        reader = getClass().getResourceAsStream("/static/ProductImages/familia-monitores-768x504-producto.jpg");
+        image = new byte[77215];
+        reader.read(image);
+        s7.setImage(image);
+        subCategoryRepository.save(s7);
+
+        reader = getClass().getResourceAsStream("/static/ProductImages/familia-torres_cajas-500x500-producto.jpg");
+        image = new byte[77215];
+        reader.read(image);
+        s8.setImage(image);
+        subCategoryRepository.save(s8);
+
+        reader = getClass().getResourceAsStream("/static/ProductImages/familia-discos_duros-500x500-producto.jpg");
+        image = new byte[77215];
+        reader.read(image);
+        s9.setImage(image);
+        subCategoryRepository.save(s9);
+
+
+
+    }
+
+    @Test
+    void AddImagesToSubcategories2() throws IOException {
+        SubCategory s1 = subCategoryRepository.findSubCategoryByName("Headphones");
+        SubCategory s2 = subCategoryRepository.findSubCategoryByName("CPU Fans");
+        SubCategory s3 = subCategoryRepository.findSubCategoryByName("Smartphones");
+
+        InputStream reader = getClass().getResourceAsStream("/static/ProductImages/familia-auriculares_gaming-768x504-producto.jpg");
+        byte[] image = new byte[77215];
+        reader.read(image);
+        s1.setImage(image);
+        subCategoryRepository.save(s1);
+
+        reader = getClass().getResourceAsStream("/static/ProductImages/familia-ventiladores_pc-500x500-producto.jpg");
+        image = new byte[77215];
+        reader.read(image);
+        s2.setImage(image);
+        subCategoryRepository.save(s2);
+
+        reader = getClass().getResourceAsStream("/static/ProductImages/familia-smartphones-768x504-producto.jpg");
+        image = new byte[77215];
+        reader.read(image);
+        s3.setImage(image);
+        subCategoryRepository.save(s3);
+
     }
 
 }

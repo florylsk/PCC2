@@ -13,11 +13,16 @@ export default function CategoryBody(props){
         <Container>
             {props.isLoading ?
                 <Spinner animation="border" role="status">
-                    <span className="visually-hidden">Fetching products...</span>
+                    <span>Fetching subcategories...</span>
                 </Spinner>
                 :
-                props.categoryProducts?.map((product) =>(
-                    <p key={product.id}>{product.name}</p>
+                props.subCategories?.map((subCategory) =>(
+                    <div key={subCategory.id}>
+                        <p >{subCategory.name}</p>
+                        <Image src={"data:image/png;base64, "+subCategory.image} />
+                    </div>
+
+
                 ))
             }
         </Container>

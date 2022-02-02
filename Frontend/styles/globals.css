@@ -103,3 +103,15 @@ a{
   background: #ff6000!important;
 }
 
+.google-button:hover{
+  background-color: #f1f1f1 !important;
+}
+
+.login-button:hover{
+  border-color: grey!important;
+}
+
+.login-button-submit:hover{
+  background-color: #a94001!important;
+}
+

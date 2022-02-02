@@ -3,7 +3,10 @@ package com.productsapi.entities;
 
 import javax.persistence.*;
 import java.util.Arrays;
+import java.util.List;
 
+@Entity(name="user")
+@Table(name="users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -26,15 +29,15 @@ public class User {
 
     @Column
     @ManyToMany
-    private Product[] productsOnShoppingCart;
+    private List<Product> productsOnShoppingCart;
 
     @Column
     @ManyToMany
-    private Product[] productsBought;
+    private List<Product> productsBought;
 
     public User(){}
 
-    public User(String mail, String name, String surnames, String hashedPassword, boolean isAdmin, Product[] productsOnShoppingCart, Product[] productsBought) {
+    public User(String mail, String name, String surnames, String hashedPassword, boolean isAdmin, List<Product> productsOnShoppingCart, List<Product> productsBought) {
         this.mail = mail;
         this.name = name;
         this.surnames = surnames;
@@ -44,7 +47,7 @@ public class User {
         this.productsBought = productsBought;
     }
 
-    public User(long id, String mail, String name, String surnames, String hashedPassword, boolean isAdmin, Product[] productsOnShoppingCart, Product[] productsBought) {
+    public User(long id, String mail, String name, String surnames, String hashedPassword, boolean isAdmin, List<Product> productsOnShoppingCart, List<Product> productsBought) {
         this.id = id;
         this.mail = mail;
         this.name = name;
@@ -53,6 +56,18 @@ public class User {
         this.isAdmin = isAdmin;
         this.productsOnShoppingCart = productsOnShoppingCart;
         this.productsBought = productsBought;
+    }
+
+    public User(String mail, String password){
+        this.mail=mail;
+        this.hashedPassword=password;
+    }
+
+    public User(String mail, String name, String surnames, String hashedPassword) {
+        this.mail = mail;
+        this.name = name;
+        this.surnames = surnames;
+        this.hashedPassword = hashedPassword;
     }
 
     public long getId() {
@@ -103,19 +118,19 @@ public class User {
         isAdmin = admin;
     }
 
-    public Product[] getProductsOnShoppingCart() {
+    public List<Product> getProductsOnShoppingCart() {
         return productsOnShoppingCart;
     }
 
-    public void setProductsOnShoppingCart(Product[] productsOnShoppingCart) {
+    public void setProductsOnShoppingCart(List<Product> productsOnShoppingCart) {
         this.productsOnShoppingCart = productsOnShoppingCart;
     }
 
-    public Product[] getProductsBought() {
+    public List<Product> getProductsBought() {
         return productsBought;
     }
 
-    public void setProductsBought(Product[] productsBought) {
+    public void setProductsBought(List<Product> productsBought) {
         this.productsBought = productsBought;
     }
 
@@ -128,8 +143,8 @@ public class User {
                 ", surnames='" + surnames + '\'' +
                 ", hashedPassword='" + hashedPassword + '\'' +
                 ", isAdmin=" + isAdmin +
-                ", productsOnShoppingCart=" + Arrays.toString(productsOnShoppingCart) +
-                ", productsBought=" + Arrays.toString(productsBought) +
+                ", productsOnShoppingCart=" + productsOnShoppingCart +
+                ", productsBought=" + productsBought +
                 '}';
     }
 }

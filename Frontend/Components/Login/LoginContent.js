@@ -12,26 +12,22 @@ import axios
     from "axios";
 
 
-let errorLogin=false;
-let errorRegister=false;
 
 class LoginContent extends React.Component{
     constructor(props) {
         super(props);
-        this.state={showLogin:true,showRegister:false}
+        this.state={showLogin:true,showRegister:false,errorLogin:false,errorRegister:false}
 
 
     }
 
     showRegisterForm = ()=>{
-        this.setState({showLogin:false,showRegister:true});
+        this.setState({showLogin:false,showRegister:true,errorLogin:false,errorRegister:false});
     }
 
     showLoginForm = ()=>{
-        this.setState({showLogin:true,showRegister:false});
+        this.setState({showLogin:true,showRegister:false,errorLogin:false,errorRegister:false});
     }
-    errorLogin=false;
-    errorRegister=false;
 
     handleLogin = (event)=>{
         event.preventDefault();
@@ -49,7 +45,6 @@ class LoginContent extends React.Component{
             headers: { "Content-Type": "application/json" },
         })
             .then(function (response) {
-                console.log(response.status);
                 if (response.status == 200){
                     let name = response.data.name;
                     let surnames = response.data.surnames;
@@ -58,22 +53,17 @@ class LoginContent extends React.Component{
                     let productsCart = response.data.productsOnShoppingCart;
                     let productsBought = response.data.productsBought;
                     let token=JSON.stringify({id:id,name:name,surnames:surnames,mail:mail,productsCart:productsCart,productsBought:productsBought});
-                    errorLogin=false;
-                    errorRegister=false;
                     Cookies.set('userToken', token);
                     window.location.href="/";
                 }
                 else{
-                    errorLogin=true;
-                    errorRegister=false;
+                    this.setState({showLogin:true,showRegister:false,errorLogin:true,errorRegister:false});
                 }
-                console.log(errorLogin);
 
             })
             .catch(function (response) {
-                errorLogin=true;
-                errorRegister=false;
-            });
+                this.setState({showLogin:true,showRegister:false,errorLogin:true,errorRegister:false});
+            }.bind(this));
 
 
     }
@@ -105,27 +95,24 @@ class LoginContent extends React.Component{
                     let productsCart = response.data.productsOnShoppingCart;
                     let productsBought = response.data.productsBought;
                     let token=JSON.stringify({id:id,name:name,surnames:surnames,mail:mail,productsCart:productsCart,productsBought:productsBought});
-                    errorLogin=false;
-                    errorRegister=false;
                     Cookies.set('userToken', token);
                     window.location.href="/";
                 }
                 else{
-                    errorLogin=false;
-                    errorRegister=true;
+                    this.setState({showLogin:false,showRegister:true,errorLogin:false,errorRegister:true});
                 }
 
 
             })
             .catch(function (response) {
-                errorLogin=false;
-                errorRegister=true;
-            });
+                this.setState({showLogin:false,showRegister:true,errorLogin:false,errorRegister:true});
+            }.bind(this));
 
     }
 
 
     render() {
+
         return (
             <Container>
                 <Row style={{paddingTop:100}}>
@@ -222,7 +209,7 @@ class LoginContent extends React.Component{
                                     <Form.Group className="mb-3" controlId="formBasicPassword" style={{marginTop:35}}>
                                         <Form.Control type="password" name="password" placeholder="Password*" style={{width:"408px",height:"48px",color:"rgb(51, 51, 51)",fontWeight:400,fontSize:"1.0625rem"}} className="login-button" />
                                     </Form.Group>
-                                    <p>{this.errorLogin ? "Invalid credentials!" : null}</p>
+                                    <p style={{color:"red"}}>{this.state.errorLogin ? "Invalid credentials!" : null}</p>
 
                                 </div>
 
@@ -242,7 +229,7 @@ class LoginContent extends React.Component{
                                     <Form.Group className="mb-3" controlId="formBasicPassword" style={{marginTop:35}}>
                                         <Form.Control type="password" name="password" placeholder="Password*" style={{width:"408px",height:"48px",color:"rgb(51, 51, 51)",fontWeight:400,fontSize:"1.0625rem"}} className="login-button" />
                                     </Form.Group>
-                                    <p>{this.errorRegister ? "Something went wrong" : null}</p>
+                                    <p style={{color:"red"}}>{this.state.errorRegister ? "Something went wrong" : null}</p>
                                 </div>
 
 

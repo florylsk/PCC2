@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.PrimitiveIterator;
 
 @RestController
 @CrossOrigin("*")
@@ -20,12 +21,12 @@ public class ProductController {
 
 
     @GetMapping("/products")
-    public ResponseEntity<List<Product>> getAllProducts(@RequestParam(required = false,name = "type") String type, @RequestParam(required = false,name="maincategory") String mainCategory){
-        if(type==null && mainCategory == null){
+    public ResponseEntity<List<Product>> getAllProducts(@RequestParam(required = false,name = "type") String type, @RequestParam(required = false,name="maincategory") String mainCategory, @RequestParam(required = false,name = "subcategory") String subCategory){
+        if(type==null && mainCategory == null && subCategory==null){
             List<Product> products = productRepository.findAll();
             return new ResponseEntity<>(products, HttpStatus.OK);
         }
-        else if(mainCategory==null && type != null){
+        else if(mainCategory==null && subCategory==null && type != null){
             if(type.equals("recommended")){
                 List<Product> products=productRepository.findRecommendedProducts();
                 return new ResponseEntity<>(products,HttpStatus.OK);
@@ -36,10 +37,15 @@ public class ProductController {
             }
 
         }
-        else if (mainCategory != null && type == null){
+        else if (mainCategory != null && type == null && subCategory==null){
             List<Product> products = productRepository.findProductByMainCategory(mainCategory);
             return new ResponseEntity<>(products,HttpStatus.OK);
         }
+        else if(mainCategory == null && type == null && subCategory != null){
+            List<Product> products = productRepository.findProductBySubCategoryName(subCategory);
+            return new ResponseEntity<>(products,HttpStatus.OK);
+        }
+
         else {
             return new ResponseEntity<>(null,HttpStatus.BAD_REQUEST);
         }

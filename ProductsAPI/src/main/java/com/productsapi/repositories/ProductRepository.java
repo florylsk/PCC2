@@ -27,4 +27,6 @@ public interface ProductRepository extends JpaRepository<Product,Long> {
 
     @Query("select p from product p where p.mainCategory.name=?1")
     public List<Product> findProductByMainCategory(String mainCategory);
+
+    public List<Product> findProductBySubCategoryName(String name);
 }

@@ -13,6 +13,10 @@ import React
 import { GiHamburgerMenu } from 'react-icons/Gi';
 import Link from "next/link"
 import Cookies from 'js-cookie';
+import Avatar
+    from "react-avatar";
+import OffCanvasLogin
+    from "./OffCanvasLogin";
 
 class NavBar extends React.Component{
     constructor(props) {
@@ -23,6 +27,11 @@ class NavBar extends React.Component{
         }catch(error){
             this.state={user:null};
         }
+    }
+
+    handleLogout = ()=>{
+        Cookies.remove("userToken");
+        window.location.reload(false);
     }
 
 
@@ -38,7 +47,7 @@ class NavBar extends React.Component{
                             </Navbar.Brand>
                         </Link>
 
-                        <Form className="d-flex" style={{marginRight:100,marginTop:20}}>
+                        <Form className="d-flex" style={{marginRight:50,marginTop:10}}>
 
                             <FormControl
                                 type="search"
@@ -53,7 +62,7 @@ class NavBar extends React.Component{
                             <Nav className="me-auto d-flex" style={{marginTop:20}}>
                                 {this.state.user==null ?
                                     <Link href="/login">
-                                        <a style={{marginRight:50,fontWeight:500,color:"inherit",textDecoration:"none",marginTop:10}}>
+                                        <a style={{marginRight:50,fontWeight:500,textDecoration:"none",marginTop:10,color:"#333"}}>
                                             <svg
                                                 style={{margin:0,width:24,height:24,marginRight:10}}
                                                 xmlns="http://www.w3.org/2000/svg"
@@ -64,19 +73,12 @@ class NavBar extends React.Component{
                                     </Link>
 
                                 :
-                                        <p style={{marginRight:50,fontWeight:500,color:"inherit",textDecoration:"none",marginTop:10}}>
-                                            <svg
-                                                style={{margin:0,width:24,height:24,marginRight:10}}
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                viewBox="0 0 24 24"
-                                                enableBackground="new 0 0 24 24">
-                                                <path d="M12 12c-2.2 0-4-1.8-4-4s1.8-4 4-4 4 1.8 4 4-1.8 4-4 4zm0-6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM20 20h-16v-1c0-3.5 3.3-6 8-6s8 2.5 8 6v1zm-13.8-2h11.7c-.6-1.8-2.8-3-5.8-3s-5.3 1.2-5.9 3z"/>
-                                            </svg>{this.state.user.name}</p>
+                                    <OffCanvasLogin userName={this.state.user.name} handleLogout ={this.handleLogout} />
 
                                 }
 
 
-                                <Nav.Link href="#" style={{fontWeight:500}}>
+                                <Nav.Link href="#" style={{fontWeight:500,color:"#333"}}>
                                     <svg
                                         style={{margin:0, width:24, height:24,marginRight:10}}
                                         viewBox="0 0 24 24"

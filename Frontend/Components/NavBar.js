@@ -1,12 +1,15 @@
 import {
+    Breadcrumb,
     Button,
+    Col,
     Container,
     Form,
     FormControl,
     Image,
     Nav,
     Navbar,
-    NavDropdown
+    NavDropdown,
+    Spinner
 } from "react-bootstrap";
 import React
     from "react";
@@ -104,13 +107,81 @@ class NavBar extends React.Component{
                                     <p className="fw-bold " style={{marginBottom:30}}><GiHamburgerMenu /> &nbsp;Categories</p>
                                 </Nav.Link>
 
+                                {this.props.pages == null ?
+                                    null
+                                    :
+                                    this.props.pages.length==1
+                                        ?
+                                        <Breadcrumb style={{marginTop:11,marginLeft:10,fontSize:"12px"}}>
+                                            <Breadcrumb.Item >
+                                                <Link href="/">
+                                                    Home
+                                                </Link>
+                                            </Breadcrumb.Item>
+                                        <Breadcrumb.Item>
+                                            <Link href={"/products/category/"+this.props.pages[0]}>
+                                                {this.props.pages[0].charAt(0).toUpperCase() + this.props.pages[0].slice(1)}
+                                            </Link>
+                                        </Breadcrumb.Item>
+                                        </Breadcrumb>
+                                        :
+                                        <Breadcrumb style={{marginTop:11,marginLeft:10,fontSize:"12px"}}>
+                                            <Breadcrumb.Item >
+                                                <Link href="/">
+                                                    Home
+                                                </Link>
+                                            </Breadcrumb.Item>
+                                            <Breadcrumb.Item>
+                                                <Link href={"/products/category/"+this.props.pages[0]}>
+                                                    {this.props.pages[0].charAt(0).toUpperCase() + this.props.pages[0].slice(1)}
+                                                </Link>
+                                            </Breadcrumb.Item>
+                                            <Breadcrumb.Item>
+                                                <Link href={"/products/category/"+this.props.pages[0]+"?subcategory="+this.props.pages[1]}>
+                                                    {this.props.pages[1]}
+                                                </Link>
+                                            </Breadcrumb.Item>
+                                        </Breadcrumb>
+
+                                }
+
+                                {
+                                    this.props.product ?
+                                    this.props.isLoading?
+                                        <Breadcrumb style={{marginTop:11,marginLeft:10,fontSize:"12px"}}>
+                                            <Spinner animation="border" role="status">
+                                            </Spinner>
+                                        </Breadcrumb>
+                                        :
+                                        <Breadcrumb style={{marginTop:11,marginLeft:10,fontSize:"12px"}}>
+                                            <Breadcrumb.Item >
+                                                <Link href="/">
+                                                    Home
+                                                </Link>
+                                            </Breadcrumb.Item>
+                                            <Breadcrumb.Item>
+                                                <Link href={"/products/category/"+this.props.productContent.mainCategory.name}>
+                                                    {this.props.productContent.mainCategory.name.charAt(0).toUpperCase() + this.props.productContent.mainCategory.name.slice(1)}
+                                                </Link>
+                                            </Breadcrumb.Item>
+                                            <Breadcrumb.Item>
+                                                <Link href={"/products/category/"+this.props.productContent.mainCategory.name+"?subcategory="+this.props.productContent.subCategory.name}>
+                                                    {this.props.productContent.subCategory.name}
+                                                </Link>
+                                            </Breadcrumb.Item>
+                                        </Breadcrumb>
+                                    :
+                                null
+                                }
+
+
                             </Nav>
 
                         </Navbar.Collapse>
-                        {!this.props.product ? <p style={{marginBottom:30, marginRight:300}}>Your <span className="fw-bold d-inline" >techonology online shop</span> leader on price, quality and service</p> : null}
+                        {!this.props.product ? this.props.pages == null ? <p style={{marginBottom:30, marginRight:300}}>Your <span className="fw-bold d-inline" >techonology online shop</span> leader on price, quality and service</p> : null : null}
                         <Nav>
                             <Nav.Link href="#" >
-                                <p  style={{marginBottom:30,fontWeight:400}}>&nbsp;January Offers</p>
+                                <p  style={{marginBottom:30,fontWeight:400}}>&nbsp;Special Offers</p>
                             </Nav.Link>
                         </Nav>
                     </Navbar>

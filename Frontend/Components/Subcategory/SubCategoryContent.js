@@ -95,7 +95,7 @@ class SubCategoryContent extends React.Component{
     render() {
         return(
             <Container fluid>
-                <NavBar />
+                <NavBar pages={[this.props.mainCategory,this.props.subCategory]} />
                 <SubCategoryBody products={this.state.products} subCategory={this.props.subCategory} mainCategory={this.props.mainCategory} />
                 <Footer />
             </Container>

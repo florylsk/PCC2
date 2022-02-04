@@ -84,7 +84,7 @@ class ProductContent extends React.Component{
                 <Head>
                     <title>{this.state.product === null ? "ComponentsPC" : (this.state.product.name)}</title>
                 </Head>
-                <NavBar product={true} />
+                <NavBar product={true} productContent={this.state.product} isLoading={this.state.isLoading} />
                 <ProductBody product={this.state.product} isLoading={this.state.isLoading} />
                 <Footer />
             </Container>

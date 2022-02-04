@@ -7,7 +7,6 @@ body {
 }
 
 a {
-  color: inherit;
   text-decoration: none;
 }
 
@@ -155,3 +154,10 @@ a{
 
 }
 
+.breadcrumb a {
+  color:#888!important;
+}
+
+.breadcrumb a:hover {
+  color:#333!important;
+}

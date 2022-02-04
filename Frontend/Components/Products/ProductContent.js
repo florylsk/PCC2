@@ -8,13 +8,19 @@ import {Container} from "react-bootstrap";
 import Footer
     from "../Footer";
 import Head from "next/head"
+import Cookies
+    from "js-cookie";
 
 
 class ProductContent extends React.Component{
     constructor(props) {
         super(props);
-
-        this.state={product:null,isLoading:true}
+        this.user = null;
+        try{
+            this.user=JSON.parse(decodeURI(Cookies.get('userToken')));
+        }
+        catch(error){this.user=null}
+        this.state={product:null, isLoading:true}
     }
     async componentDidMount(){
         let response=null;
@@ -85,7 +91,7 @@ class ProductContent extends React.Component{
                     <title>{this.state.product === null ? "ComponentsPC" : (this.state.product.name)}</title>
                 </Head>
                 <NavBar product={true} productContent={this.state.product} isLoading={this.state.isLoading} />
-                <ProductBody product={this.state.product} isLoading={this.state.isLoading} />
+                <ProductBody product={this.state.product} isLoading={this.state.isLoading} user={this.user}/>
                 <Footer />
             </Container>
 

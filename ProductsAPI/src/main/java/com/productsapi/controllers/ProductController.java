@@ -1,7 +1,10 @@
 package com.productsapi.controllers;
 
 import com.productsapi.entities.Product;
+import com.productsapi.entities.User;
 import com.productsapi.repositories.ProductRepository;
+import com.productsapi.repositories.UserRepository;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +21,9 @@ public class ProductController {
 
     @Autowired
     private ProductRepository productRepository;
+
+    @Autowired
+    private UserRepository userRepository;
 
 
     @GetMapping("/products")
@@ -166,6 +172,40 @@ public class ProductController {
                 return new ResponseEntity<>(null,HttpStatus.INTERNAL_SERVER_ERROR);
             }
 
+        }
+    }
+
+    @GetMapping("/products/users/shopping-cart/by-id/{id}")
+    public ResponseEntity<List<Product>> getShoppingCartProducts(@PathVariable("id") long id){
+        Optional<User> userData = userRepository.findById(id);
+        if (userData.isPresent()){
+            List<Product> products = userData.get().getProductsOnShoppingCart();
+            return new ResponseEntity<>(products,HttpStatus.OK);
+        }
+        else{
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @PostMapping("/products/users/shopping-cart/by-id/{id}")
+    public ResponseEntity<List<Product>> addProductToShoppingCart(@PathVariable("id") long id, @RequestBody Product product ){
+        Optional<User> userData = userRepository.findById(id);
+        if (userData.isPresent()){
+            User user = userData.get();
+            List<Product> products = user.getProductsOnShoppingCart();
+            try{
+                products.add(product);
+                user.setProductsOnShoppingCart(products);
+                userRepository.save(user);
+                return new ResponseEntity<>(products,HttpStatus.OK);
+            }
+            catch(Exception e){
+                System.out.println(e);
+                return new ResponseEntity<>(null,HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+        }
+        else{
+            return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
         }
     }
 

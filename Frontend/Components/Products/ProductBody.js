@@ -22,9 +22,38 @@ import {MdAddShoppingCart} from "react-icons/md"
 import {HiOutlineInformationCircle} from "react-icons/hi"
 import {RiFacebookFill} from "react-icons/ri"
 import Avatar from 'react-avatar';
+import axios
+    from "axios";
+import Cookies
+    from "js-cookie";
 
 
 export default function ProductBody(props){
+
+    const handleAddToCart = ()=>{
+        let product=props.product;
+        let user = props.user;
+        axios({
+            method: "post",
+            url: "http://localhost:8082/api/v1/products/users/shopping-cart/by-id/"+user.id,
+            data: product,
+            headers: { "Content-Type": "application/json" },
+        })
+            .then(function (response) {
+                if (response.status == 200){
+                    console.log("added!");
+                }
+                else{
+                    console.log("error!");
+                }
+
+            })
+            .catch(function (response) {
+                console.log("error!");
+            });
+
+    }
+
 
     return(
         <Container style={{marginTop:30}}>
@@ -167,7 +196,7 @@ export default function ProductBody(props){
                             </Button>
                         </Col>
                         <Col>
-                            <Button className="greyButtonProduct" style={{backgroundColor:"transparent",border:"2px solid #dcdcdc",height:50,width:226,marginLeft:-40}}>
+                            <Button onClick={props.user == null ? null : handleAddToCart} className="greyButtonProduct" style={{backgroundColor:"transparent",border:"2px solid #dcdcdc",height:50,width:226,marginLeft:-40}}>
                                 <MdAddShoppingCart className="greyButtonProductIcon" style={{width:30,height:35,color:"#888"}} />
                                 <p className="d-inline greyButtonProductText" style={{color:"#888",fontWeight:700}}>Add to cart</p>
                             </Button>

@@ -8,23 +8,22 @@ import Avatar
     from "react-avatar";
 import Link
     from "next/link";
-
+import {Navbar,Nav} from "react-bootstrap";
 
 export default function OffCanvasLogin(props){
 
 
     const [show, setShow] = useState(false);
-
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
     return (
         <>
-            <Button onClick={handleShow} style={{backgroundColor:"transparent",borderColor:"transparent"}}>
-                <p style={{marginRight:50,fontWeight:500,color:"#333",textDecoration:"none",marginTop:2}}>
+            <Nav.Link onClick={handleShow} style={{fontWeight:500,color:"#333"}}>
+                <p style={{fontWeight:500,color:"#333",textDecoration:"none"}}>
                     <Avatar name={props.userName} round="50%" size="26" textSizeRatio={1.75} style={{marginRight:10}} />
                     {props.userName}</p>
-            </Button>
+            </Nav.Link>
 
             <Offcanvas placement="end" show={show} onHide={handleClose}>
                 <Offcanvas.Header closeButton>

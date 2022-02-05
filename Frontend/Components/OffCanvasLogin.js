@@ -20,7 +20,7 @@ export default function OffCanvasLogin(props){
     return (
         <>
             <Nav.Link onClick={handleShow} style={{fontWeight:500,color:"#333"}}>
-                <p style={{fontWeight:500,color:"#333",textDecoration:"none"}}>
+                <p style={{fontWeight:500,color:"#333",textDecoration:"none",fontSize:14}}>
                     <Avatar name={props.userName} round="50%" size="26" textSizeRatio={1.75} style={{marginRight:10}} />
                     {props.userName}</p>
             </Nav.Link>

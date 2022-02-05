@@ -26,7 +26,7 @@ import axios
     from "axios";
 import Cookies
     from "js-cookie";
-
+import Link from "next/link"
 
 export default function ProductBody(props){
 
@@ -202,9 +202,13 @@ export default function ProductBody(props){
                             </Button>
                         </Col>
                         <Col>
+                            <Link href="/cart">
+
+
                             <Button className="orangeButtonProduct" style={{backgroundColor:"#ff6000",borderColor:"#ed6003",width:226,height:50,marginLeft:-70}}>
                                 <p className="d-inline orangeButtonProductText" style={{marginLeft:50,color:"#fff",marginRight:50,fontWeight:700}}>Buy</p>
                             </Button>
+                            </Link>
                         </Col>
 
                     </Row>

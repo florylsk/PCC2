@@ -50,10 +50,9 @@ class LoginContent extends React.Component{
                     let surnames = response.data.surnames;
                     let mail = response.data.mail;
                     let id = response.data.id;
-                    let productsCart = response.data.productsOnShoppingCart;
-                    let productsBought = response.data.productsBought;
-                    let token=JSON.stringify({id:id,name:name,surnames:surnames,mail:mail,productsCart:productsCart,productsBought:productsBought});
+                    let token=JSON.stringify({id:id,name:name,surnames:surnames,mail:mail});
                     Cookies.set('userToken', token);
+                    console.log(token);
                     window.location.href="/";
                 }
                 else{

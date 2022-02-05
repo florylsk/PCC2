@@ -161,3 +161,14 @@ a{
 .breadcrumb a:hover {
   color:#333!important;
 }
+
+.form-check-input:checked{
+  background-color: #ff6000!important;
+  border-color: #ff6000!important;
+}
+
+.form-check-input:focus{
+  border-color: rgba(0,0,0,0.25)!important;
+  box-shadow: none!important;
+}
+

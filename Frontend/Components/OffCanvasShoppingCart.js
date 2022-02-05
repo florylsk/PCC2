@@ -33,7 +33,7 @@ export default function OffCanvasShoppingCart(props){
     return (
 
         <>
-            <Nav.Link onClick={handleShow} style={{fontWeight:500,color:"#333"}}>
+            <Nav.Link onClick={handleShow} style={{fontWeight:500,color:"#333",fontSize:14}}>
                 <svg
                     style={{margin:0, width:24, height:24,marginRight:10}}
                     viewBox="0 0 24 24"

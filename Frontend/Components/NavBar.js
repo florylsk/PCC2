@@ -69,7 +69,7 @@ class NavBar extends React.Component{
                                 {this.state.user==null ?
                                     <div>
                                         <Link href="/login">
-                                            <a style={{marginRight:50,fontWeight:500,textDecoration:"none",marginTop:10,color:"#333"}}>
+                                            <a style={{marginRight:50,fontWeight:500,textDecoration:"none",marginTop:10,color:"#333",fontSize:13}}>
                                                 <svg
                                                     style={{margin:0,width:24,height:24,marginRight:10}}
                                                     xmlns="http://www.w3.org/2000/svg"
@@ -78,7 +78,7 @@ class NavBar extends React.Component{
                                                     <path d="M12 12c-2.2 0-4-1.8-4-4s1.8-4 4-4 4 1.8 4 4-1.8 4-4 4zm0-6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM20 20h-16v-1c0-3.5 3.3-6 8-6s8 2.5 8 6v1zm-13.8-2h11.7c-.6-1.8-2.8-3-5.8-3s-5.3 1.2-5.9 3z"/>
                                                 </svg>My Account</a>
                                         </Link>
-                                        <Nav.Link className="d-inline" href="#" style={{fontWeight:500,color:"#333"}}>
+                                        <Nav.Link className="d-inline" href="#" style={{fontWeight:500,color:"#333",fontSize:13}}>
                                             <svg
                                                 style={{margin:0, width:24, height:24,marginRight:10}}
                                                 viewBox="0 0 24 24"
@@ -94,11 +94,7 @@ class NavBar extends React.Component{
                                     <OffCanvasLogin userName={this.state.user.name} handleLogout ={this.handleLogout} />
                                     <ShoppingCart user={this.state.user} />
                                     </div>
-
-
                                 }
-
-
 
                             </Nav>
                         </Navbar.Collapse>

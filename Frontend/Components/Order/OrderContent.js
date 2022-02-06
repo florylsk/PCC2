@@ -5,6 +5,11 @@ import Cookies
     from "js-cookie";
 import OrderBody
     from "./OrderBody";
+import NavBar
+    from "../NavBar";
+import Footer
+    from "../Footer";
+import {Container} from "react-bootstrap";
 
 
 class OrderContent extends React.Component{
@@ -81,7 +86,10 @@ class OrderContent extends React.Component{
 
     render() {
         return (
-            <OrderBody userItems={this.state.userItems} isLoading={this.state.isLoading} user={this.user} />
+            <Container fluid>
+                <OrderBody userItems={this.state.userItems} isLoading={this.state.isLoading} user={this.user} />
+            </Container>
+
         );
     }
 

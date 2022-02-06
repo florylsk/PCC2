@@ -4,7 +4,8 @@ import {
     Container,
     Form,
     Navbar,
-    Row
+    Row,
+    Spinner
 } from "react-bootstrap";
 import {MdLocalShipping} from "react-icons/md";
 import {GiRecycle} from "react-icons/gi";
@@ -17,11 +18,18 @@ import axios
     from "axios";
 import Cookies
     from "js-cookie";
+import OrderReceipt
+    from "./OrderReceipt";
+import NavBar
+    from "../NavBar";
+import Footer
+    from "../Footer";
 
 
 export default function OrderBody(props){
     const [transaction,setTransaction] = React.useState(null);
     const [codeTransaction,setCodeTransaction] = React.useState(null);
+    const [isLoading,setIsLoading] = React.useState(false);
     let totalPrice=0;
     if (!props.isLoading){
         if(props.userItems.length>0){
@@ -33,6 +41,7 @@ export default function OrderBody(props){
     totalPrice=totalPrice.toFixed(2);
     const handleSubmit = (event)=>{
         event.preventDefault();
+        setIsLoading(true);
         const data = new FormData(event.currentTarget);
         let userId=props.user.id;
         let userItems=props.userItems;
@@ -64,7 +73,8 @@ export default function OrderBody(props){
             cardNumber:cardNumber,
             cardName:cardName,
             cardExpiration:cardExpiration,
-            cardSecurityCode:cardSecurityCode
+            cardSecurityCode:cardSecurityCode,
+            totalPrice:totalPrice
         };
         console.log(transaction);
         axios({
@@ -76,7 +86,8 @@ export default function OrderBody(props){
             .then(function (response) {
                 if(response.status==200){
                     console.log(response.data);
-                    setTransaction({name:name,
+                    setTransaction({
+                        name:name,
                         surnames:surnames,
                         userId: userId,
                         userItems: userItems,
@@ -90,7 +101,9 @@ export default function OrderBody(props){
                         cardNumber:cardNumber,
                         cardName:cardName,
                         cardExpiration:cardExpiration,
-                        cardSecurityCode:cardSecurityCode});
+                        cardSecurityCode:cardSecurityCode,
+                        totalPrice:totalPrice
+                    });
                     setCodeTransaction(response.data);
 
                 }
@@ -153,6 +166,7 @@ export default function OrderBody(props){
 
                         <Col xs={6}>
                             <h4>Checkout data</h4>
+                            {isLoading ? <Spinner animation="border" style={{width:60,height:60,float:"right"}} /> : null}
 
                             <Row style={{paddingTop:50}}>
 
@@ -263,6 +277,7 @@ export default function OrderBody(props){
                                     <Button type="submit" className="orangeButtonProduct" style={{backgroundColor:"#ff6000",borderColor:"#ed6003",width:362,height:43,marginLeft:0,marginTop:30}}>
                                         <p className="d-inline orangeButtonProductText" style={{marginLeft:50,color:"#fff",marginRight:50,fontWeight:700}}>Finish order</p>
                                     </Button>
+
                                 </div>
                             }
                         </Col>
@@ -283,7 +298,11 @@ export default function OrderBody(props){
 
     else{
         return(
-          <p>{transaction.name} / {codeTransaction}</p>
+            <Container fluid>
+                <NavBar noCenter={true} />
+                <OrderReceipt transaction={transaction} codeTransaction = {codeTransaction} user={props.user} userItems={props.userItems} totalPrice={totalPrice}/>
+                <Footer />
+            </Container>
         );
     }
 

@@ -46,7 +46,6 @@ public class TransactionController {
             headers.setContentType(MediaType.APPLICATION_JSON);
             HttpEntity<Transaction> httpEntity = new HttpEntity<>(transaction,headers);
             RestTemplate restTemplate = new RestTemplate();
-            System.out.println(transaction);
             String response = restTemplate.postForObject("http://localhost:8084/api/v1/save-transaction",httpEntity,String.class);
             return new ResponseEntity<>(response,HttpStatus.OK);
 

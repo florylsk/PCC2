@@ -3,6 +3,7 @@ package com.financeapi.entities;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.math.BigDecimal;
 import java.time.YearMonth;
 import java.util.List;
 
@@ -22,13 +23,14 @@ public class Transaction {
     private String cardNumber;
     private String cardName;
     private String cardExpiration;
+    private BigDecimal totalPrice;
     private int cardSecurityCode;
     private String transactionCode;
     private long timeTransaction;
 
     public Transaction(){}
 
-    public Transaction(String userId, List<Product> userItems, String name, String surnames, String dni, String phone, String address, String country, int zipCode, String city, String province, String cardNumber, String cardName, String cardExpiration, int cardSecurityCode) {
+    public Transaction(String userId, List<Product> userItems, String name, String surnames, String dni, String phone, String address, String country, int zipCode, String city, String province, String cardNumber, String cardName, String cardExpiration, int cardSecurityCode, BigDecimal totalPrice) {
         this.userId = userId;
         this.userItems = userItems;
         this.name = name;
@@ -44,6 +46,7 @@ public class Transaction {
         this.cardName = cardName;
         this.cardExpiration = cardExpiration;
         this.cardSecurityCode = cardSecurityCode;
+        this.totalPrice=totalPrice;
     }
 
     public String getUserId() {
@@ -172,6 +175,14 @@ public class Transaction {
 
     public long getTimeTransaction() {
         return timeTransaction;
+    }
+
+    public BigDecimal getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(BigDecimal totalPrice) {
+        this.totalPrice = totalPrice;
     }
 
     public void setTimeTransaction(long timeTransaction) {

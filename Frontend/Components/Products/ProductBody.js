@@ -1,10 +1,13 @@
 import {
+    Alert,
     Button,
     Col,
     Container,
     Image,
     Row,
-    Spinner
+    Spinner,
+    Toast,
+    ToastContainer
 } from "react-bootstrap";
 import NavBar
     from "../NavBar";
@@ -27,9 +30,13 @@ import axios
 import Cookies
     from "js-cookie";
 import Link from "next/link"
+import React
+    from "react";
+
 
 export default function ProductBody(props){
-
+    const [showAdded,setShowAdded] = React.useState(false);
+    const toggleShowAdded = () => setShowAdded(!showAdded);
     const handleAddToCart = ()=>{
         let product=props.product;
         let user = props.user;
@@ -51,6 +58,7 @@ export default function ProductBody(props){
             .catch(function (response) {
                 console.log("error!");
             });
+        setShowAdded(true);
 
     }
 
@@ -58,13 +66,19 @@ export default function ProductBody(props){
     return(
         <Container style={{marginTop:30}}>
             <Row >
+
                 <Col>
                     {props.product === null ? <Spinner /> : <Image width="527" height="527" src={"data:image/png;base64, "+props.product.mainImage} /> }
 
                 </Col>
                 <Col>
+
                     <Row>
+
                         <p style={{fontWeight:700,fontSize:18,color:"#444"}}>{props.product === null ? <Spinner /> : props.product.name}</p>
+                        <Alert variant="success" show={showAdded} onClose={toggleShowAdded}>
+                            Product added to cart!
+                        </Alert>
                     </Row>
                     <Row>
                         <Col xs={3}>

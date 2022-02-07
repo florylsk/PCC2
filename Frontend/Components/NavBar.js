@@ -27,11 +27,15 @@ import ShoppingCart
 class NavBar extends React.Component{
     constructor(props) {
         super(props);
+        this.state={user:null};
+
+    }
+    componentDidMount() {
         try{
             let user=JSON.parse(decodeURI(Cookies.get('userToken')));
-            this.state={user:user};
+            this.setState({user:user});
         }catch(error){
-            this.state={user:null};
+            this.setState({user:null});
         }
     }
 

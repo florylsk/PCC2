@@ -34,11 +34,15 @@ export default function HomeProducts(props){
 
                 </Col>
                 <Col>
-                    <Image src="/images/familia-altavoces.jpg" />
-                    <p className="fw-bold" style={{marginTop:20,marginLeft:40,color:"#444"}}>Speakers</p>
+                    <Link href="/products/category/peripherals?subcategory=Speakers" passHref>
+                        <a>
+                            <Image src="/images/familia-altavoces.jpg" />
+                            <p className="fw-bold" style={{marginTop:20,marginLeft:40,color:"#444"}}>Speakers</p>
+                        </a>
+                    </Link>
                 </Col>
                 <Col>
-                    <Link href="/products/category/peripherals">
+                    <Link href="/products/category/peripherals" passHref>
                         <a>
                             <Image src="/images/familia-perifericos.jpg" />
                             <p className="fw-bold" style={{marginTop:20,marginLeft:30,color:"#444"}}>Peripherals</p>
@@ -47,8 +51,12 @@ export default function HomeProducts(props){
 
                 </Col>
                 <Col>
-                    <Image src="/images/familia-tablets.jpg" />
-                    <p className="fw-bold" style={{marginTop:20,marginLeft:55,color:"#444"}}>Tables</p>
+                    <Link href="/products/category/Smartphones%20and%20telephony?subcategory=Smartphones" passHref>
+                        <a>
+                            <Image src="/images/familia-tablets.jpg" />
+                            <p className="fw-bold" style={{marginTop:20,marginLeft:55,color:"#444"}}>Tablets</p>
+                        </a>
+                    </Link>
                 </Col>
                 <Col>
                     <Image src="/images/familia-tv.jpg" />

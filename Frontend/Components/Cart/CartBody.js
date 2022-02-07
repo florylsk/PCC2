@@ -14,8 +14,6 @@ import React
 import {MdLocalShipping} from "react-icons/md"
 import {GiRecycle} from "react-icons/gi"
 import {AiFillSafetyCertificate} from "react-icons/ai"
-import Footer
-    from "../Footer";
 
 export default function CartBody(props){
     let totalPrice=0;
@@ -120,7 +118,7 @@ export default function CartBody(props){
                           <hr style={{width:"90%",marginLeft:10}}  />
                           <h5 style={{marginLeft:10,marginTop:-8,color:"#444"}}>TOTAL</h5>
                           <h5 className="text-end" style={{marginTop:-33,marginRight:25,color:"#444"}}>{totalPrice}€</h5>
-                          <Link href="/cart/order">
+                          <Link href="/cart/order" passHref>
                               <Button className="orangeButtonProduct" style={{backgroundColor:"#ff6000",borderColor:"#ed6003",width:362,height:43,marginLeft:0,marginTop:30}}>
                                   <p className="d-inline orangeButtonProductText" style={{marginLeft:50,color:"#fff",marginRight:50,fontWeight:700}}>Checkout</p>
                               </Button>

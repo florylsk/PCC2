@@ -6,7 +6,7 @@ import SubCategoryContent
 
 
 
-export default function ProductsCategoryPage(props){
+export default function ProductsCategoryPage(){
 
     const router=useRouter();
 

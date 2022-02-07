@@ -91,7 +91,7 @@ class CategoryContent extends React.Component{
     render() {
         return(
             <Container  fluid>
-                <NavBar pages={[this.props.categoryName]} />
+                <NavBar />
                 <CategoryBody subCategories={this.state.Subcategories} isLoading={this.state.isLoading} mainCategory={this.props.categoryName} />
                 <Footer />
             </Container>

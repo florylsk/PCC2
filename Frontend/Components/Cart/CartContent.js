@@ -2,11 +2,7 @@ import React
     from "react";
 import Cookies
     from "js-cookie";
-import NavBar
-    from "../NavBar";
-import {Container} from "react-bootstrap";
-import Footer
-    from "../Footer";
+
 import CartBody
     from "./CartBody";
 
@@ -15,15 +11,16 @@ class CartContent extends React.Component{
     constructor(props) {
         super(props);
         this.user = null;
+
+        this.state={userItems:null,isLoading:true}
+    }
+
+    async componentDidMount(){
         try{
             this.user=JSON.parse(decodeURI(Cookies.get('userToken')));
         }catch(error){
             window.location.href="/login";
         }
-        this.state={userItems:null,isLoading:true}
-    }
-
-    async componentDidMount(){
         let response=null;
         let errorHappened=false;
         try{

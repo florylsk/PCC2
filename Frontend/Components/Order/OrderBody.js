@@ -176,13 +176,13 @@ export default function OrderBody(props){
                                     <Col>
                                         <Form.Group className="mb-3">
                                             <Form.Label>Name</Form.Label>
-                                            <Form.Control required type="text" name="name" placeholder={props.user.name}/>
+                                            <Form.Control required type="text" name="name" placeholder={props.user?.name}/>
                                         </Form.Group>
                                     </Col>
                                     <Col>
                                         <Form.Group className="mb-3">
                                             <Form.Label>Name</Form.Label>
-                                            <Form.Control required type="text" name="surnames" placeholder={props.user.surnames}/>
+                                            <Form.Control required type="text" name="surnames" placeholder={props.user?.surnames}/>
                                         </Form.Group>
                                     </Col>
                                 </Row>

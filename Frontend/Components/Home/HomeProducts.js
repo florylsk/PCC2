@@ -21,11 +21,15 @@ export default function HomeProducts(props){
             <Row>
                 <h3 style={{fontWeight:300}}><span className=" d-inline" style={{fontWeight:700,color:"#444"}}>Most Relevant </span> Categories</h3>
                 <Col>
-                    <Image src="/images/familia-portatiles.jpg" />
-                    <p className="fw-bold" style={{marginTop:20,marginLeft:40,color:"#444"}}>Laptops</p>
+                    <Link href="/products/category/computers?subcategory=Laptops" passHref>
+                        <a>
+                            <Image src="/images/familia-portatiles.jpg" />
+                            <p className="fw-bold" style={{marginTop:20,marginLeft:40,color:"#444"}}>Laptops</p>
+                        </a>
+                    </Link>
                 </Col>
                 <Col>
-                    <Link href="/products/category/components">
+                    <Link href="/products/category/components" passHref>
                         <a>
                             <img src="/images/familia-pccom.jpg" />
                             <p className="fw-bold" style={{marginTop:20,marginLeft:40,color:"#444"}}>Components</p>
@@ -59,8 +63,13 @@ export default function HomeProducts(props){
                     </Link>
                 </Col>
                 <Col>
-                    <Image src="/images/familia-tv.jpg" />
-                    <p className="fw-bold" style={{marginTop:20,marginLeft:60,color:"#444"}}>TVs</p>
+                    <Link href="/products/category/audiovisual?subcategory=TVs">
+                        <a>
+                            <Image src="/images/familia-tv.jpg" />
+                            <p className="fw-bold" style={{marginTop:20,marginLeft:60,color:"#444"}}>TVs</p>
+                        </a>
+                    </Link>
+
                 </Col>
             </Row>
 

@@ -13,6 +13,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.io.IOException;
 import java.io.InputStream;
 import java.math.BigDecimal;
+import java.util.Optional;
 
 @SpringBootTest
 class ProductsApiApplicationTests {
@@ -318,5 +319,113 @@ class ProductsApiApplicationTests {
         subCategoryRepository.save(s3);
 
     }
+
+    @Test
+    void PopulateDatabaseMainCategories3(){
+        //MainCategories
+        MainCategory m1 = new MainCategory("Computers");
+        MainCategory m2= new MainCategory("Audio, photo, video");
+        MainCategory m3= new MainCategory("TVs");
+        MainCategory m4= new MainCategory("Gaming");
+        mainCategoryRepository.save(m1);
+        mainCategoryRepository.save(m2);
+        mainCategoryRepository.save(m3);
+        mainCategoryRepository.save(m4);
+
+    }
+
+    @Test
+    void populateDatabaseSubCategories3() throws IOException {
+        MainCategory computers = mainCategoryRepository.findMainCategoryByName("Computers");
+        MainCategory audio_photo_video = mainCategoryRepository.findMainCategoryByName("Audio, photo, video");
+        MainCategory tvs = mainCategoryRepository.findMainCategoryByName("TVs");
+        MainCategory gaming = mainCategoryRepository.findMainCategoryByName("Gaming");
+        MainCategory selfcarenhealth = mainCategoryRepository.findMainCategoryByName("Self care and health");
+        mainCategoryRepository.delete(tvs);
+        mainCategoryRepository.delete(selfcarenhealth);
+        //SubCategories3
+        SubCategory s1 = new SubCategory("Laptops",computers);
+        InputStream reader = getClass().getResourceAsStream("/static/ProductImages/familia-portatiles_gaming-768x504-producto.jpg");
+        byte[] image = new byte[77215];
+        reader.read(image);
+        s1.setImage(image);
+        subCategoryRepository.save(s1);
+
+        SubCategory s2 = new SubCategory("Desktops",computers);
+        reader = getClass().getResourceAsStream("/static/ProductImages/familia-pc_tipo-768x504-producto.jpg");
+        image = new byte[77215];
+        reader.read(image);
+        s2.setImage(image);
+        subCategoryRepository.save(s2);
+
+        SubCategory s3 = new SubCategory("TVs",audio_photo_video);
+        reader = getClass().getResourceAsStream("/static/ProductImages/familia-televisores-768x504-tematica.jpg");
+        image = new byte[77215];
+        reader.read(image);
+        s3.setImage(image);
+        subCategoryRepository.save(s3);
+
+        SubCategory s4 = new SubCategory("Home Cinema",audio_photo_video);
+        reader = getClass().getResourceAsStream("/static/ProductImages/familia-home_cinema-768x504-producto.jpg");
+        image = new byte[77215];
+        reader.read(image);
+        s4.setImage(image);
+        subCategoryRepository.save(s4);
+
+        SubCategory s5 = new SubCategory("TV Speakers",audio_photo_video);
+        reader = getClass().getResourceAsStream("/static/ProductImages/familia-altavoces_barras_sonido-768x504-tematica.jpg");
+        image = new byte[77215];
+        reader.read(image);
+        s5.setImage(image);
+        subCategoryRepository.save(s5);
+
+        SubCategory s6 = new SubCategory("Playstation",gaming);
+        reader = getClass().getResourceAsStream("/static/ProductImages/banner-playstation-500.png");
+        image = new byte[77215];
+        reader.read(image);
+        s6.setImage(image);
+        subCategoryRepository.save(s6);
+
+        SubCategory s7 = new SubCategory("Xbox",gaming);
+        reader = getClass().getResourceAsStream("/static/ProductImages/banner-xbox-500.png");
+        image = new byte[77215];
+        reader.read(image);
+        s7.setImage(image);
+        subCategoryRepository.save(s7);
+
+        SubCategory s8 = new SubCategory("Nintendo",gaming);
+        reader = getClass().getResourceAsStream("/static/ProductImages/banner-nintendo-500.png");
+        image = new byte[77215];
+        reader.read(image);
+        s8.setImage(image);
+        subCategoryRepository.save(s8);
+
+
+    }
+
+    @Test
+    void fixAudioPhotoVideo(){
+        MainCategory audiovisual = new MainCategory("Audiovisual");
+        mainCategoryRepository.save(audiovisual);
+        SubCategory s1 = subCategoryRepository.findSubCategoryByName("TVs");
+        SubCategory s2 = subCategoryRepository.findSubCategoryByName("Home Cinema");
+        SubCategory s3 = subCategoryRepository.findSubCategoryByName("TV Speakers");
+        s1.setMainCategory(audiovisual);
+        s2.setMainCategory(audiovisual);
+        s3.setMainCategory(audiovisual);
+        subCategoryRepository.save(s1);
+        subCategoryRepository.save(s2);
+        subCategoryRepository.save(s3);
+        MainCategory audio_photo_video = mainCategoryRepository.findMainCategoryByName("Audio, photo, video");
+        mainCategoryRepository.delete(audio_photo_video);
+    }
+
+    @Test
+    void deleteGhostMainCategory(){
+        mainCategoryRepository.deleteById(Long.valueOf(43));
+
+    }
+
+
 
 }

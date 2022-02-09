@@ -1,6 +1,7 @@
 import {
     Alert,
     Button,
+    Carousel,
     Col,
     Container,
     Image,
@@ -62,13 +63,55 @@ export default function ProductBody(props){
 
     }
 
+    const handleBuy = ()=>{
+        let product=props.product;
+        let user = props.user;
+        axios({
+            method: "post",
+            url: "http://localhost:8082/api/v1/products/users/shopping-cart/by-id/"+user.id,
+            data: product,
+            headers: { "Content-Type": "application/json" },
+        })
+            .then(function (response) {
+                if (response.status == 200){
+                    console.log("added!");
+                }
+                else{
+                    console.log("error!");
+                }
+
+            })
+            .catch(function (response) {
+                console.log("error!");
+            });
+        setShowAdded(true);
+    }
+
 
     return(
         <Container style={{marginTop:30}}>
             <Row >
 
                 <Col>
-                    {props.product === null ? <Spinner /> : <Image width="527" height="527" src={"data:image/png;base64, "+props.product.mainImage} /> }
+                    {props.product === null ? <Spinner /> :
+                        <Carousel interval={2000}>
+                            <Carousel.Item style={{width:527,heigth:527}}>
+                                <img
+                                    className="d-block w-100"
+                                    src={"data:image/png;base64, "+props.product.mainImage}
+                                    alt="First slide"
+                                />
+                            </Carousel.Item>
+                            <Carousel.Item style={{width:527,heigth:527}}>
+                                <img
+                                    className="d-block w-100"
+                                    src={"data:image/png;base64, "+props.product.secondaryImage}
+                                    alt="Second slide"
+                                />
+                            </Carousel.Item>
+                        </Carousel>
+                        }
+
 
                 </Col>
                 <Col>
@@ -76,7 +119,7 @@ export default function ProductBody(props){
                     <Row>
 
                         <p style={{fontWeight:700,fontSize:18,color:"#444"}}>{props.product === null ? <Spinner /> : props.product.name}</p>
-                        <Alert variant="success" show={showAdded} onClose={toggleShowAdded}>
+                        <Alert variant="warning" className="alert-pcc" show={showAdded} onClose={toggleShowAdded}>
                             Product added to cart!
                         </Alert>
                     </Row>
@@ -217,9 +260,7 @@ export default function ProductBody(props){
                         </Col>
                         <Col>
                             <Link href="/cart">
-
-
-                            <Button className="orangeButtonProduct" style={{backgroundColor:"#ff6000",borderColor:"#ed6003",width:226,height:50,marginLeft:-70}}>
+                            <Button onClick={handleBuy} className="orangeButtonProduct" style={{backgroundColor:"#ff6000",borderColor:"#ed6003",width:226,height:50,marginLeft:-70}}>
                                 <p className="d-inline orangeButtonProductText" style={{marginLeft:50,color:"#fff",marginRight:50,fontWeight:700}}>Buy</p>
                             </Button>
                             </Link>

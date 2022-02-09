@@ -40,7 +40,7 @@ class CategoryContent extends React.Component{
         }
         this.timerID = setInterval(
             ()=> this.checkProducts(),
-            100
+            1000
         )
         if (errorHappened){
             this.setState({Subcategories:[],isLoading:true});
@@ -51,7 +51,6 @@ class CategoryContent extends React.Component{
     }
 
     async checkProducts(){
-        if (this.state.Subcategories.length == 0){
             let response=null;
             let errorHappened=false;
             try{
@@ -82,7 +81,7 @@ class CategoryContent extends React.Component{
             }
         }
 
-    }
+
 
     componentWillUnmount() {
         clearInterval(this.timerID);

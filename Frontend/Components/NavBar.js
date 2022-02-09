@@ -3,6 +3,7 @@ import {
     Button,
     Col,
     Container,
+    Dropdown,
     Form,
     FormControl,
     Image,
@@ -22,6 +23,8 @@ import OffCanvasLogin
     from "./OffCanvasLogin";
 import ShoppingCart
     from "./ShoppingCart";
+import DropdownMenu
+    from "react-bootstrap/DropdownMenu";
 
 
 class NavBar extends React.Component{
@@ -113,9 +116,50 @@ class NavBar extends React.Component{
 
                         <Navbar.Collapse>
                             <Nav>
-                                <Nav.Link href="#" >
-                                    <p className="fw-bold " style={{marginBottom:30}}><GiHamburgerMenu /> &nbsp;Categories</p>
-                                </Nav.Link>
+                                <Dropdown drop="end">
+                                    <Dropdown.Toggle className="no-style" style={{marginBottom:45}}>
+                                        <p  style={{fontWeight:600}}><GiHamburgerMenu /> &nbsp;Categories</p>
+                                    </Dropdown.Toggle>
+                                    <Dropdown.Menu>
+                                        <Link href="/products/category/peripherals" passHref>
+                                        <Dropdown.Item>
+                                            Peripherals
+                                        </Dropdown.Item>
+                                        </Link>
+                                        <Link href="/products/category/components" passHref>
+                                            <Dropdown.Item>
+                                                Components
+                                            </Dropdown.Item>
+                                        </Link>
+                                        <Link href="/products/category/smartphones and telephony" passHref>
+                                            <Dropdown.Item>
+                                                Smartphones and telephony
+                                            </Dropdown.Item>
+                                        </Link>
+                                        <Link href="/products/category/selfcare" passHref>
+                                            <Dropdown.Item>
+                                                Selfcare
+                                            </Dropdown.Item>
+                                        </Link>
+                                        <Link href="/products/category/computers" passHref>
+                                            <Dropdown.Item>
+                                                Computers
+                                            </Dropdown.Item>
+                                        </Link>
+                                        <Link href="/products/category/gaming" passHref>
+                                            <Dropdown.Item>
+                                                Gaming
+                                            </Dropdown.Item>
+                                        </Link>
+                                        <Link href="/products/category/audiovisual" passHref>
+                                            <Dropdown.Item>
+                                                Audiovisual
+                                            </Dropdown.Item>
+                                        </Link>
+
+                                    </Dropdown.Menu>
+                                </Dropdown>
+
 
 
 

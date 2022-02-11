@@ -25,6 +25,8 @@ import ShoppingCart
     from "./ShoppingCart";
 import DropdownMenu
     from "react-bootstrap/DropdownMenu";
+import NavBarSearch
+    from "./NavBarSearch";
 
 
 class NavBar extends React.Component{
@@ -49,6 +51,7 @@ class NavBar extends React.Component{
 
 
 
+
     render() {
         return(
             <Container fluid className="sticky-top" style={{backgroundColor:"#ffffff"}}>
@@ -60,16 +63,7 @@ class NavBar extends React.Component{
                             </Navbar.Brand>
                         </Link>
 
-                        <Form className="d-flex" style={{marginRight:50,marginTop:10}}>
-
-                            <FormControl
-                                type="search"
-                                placeholder="Search product..."
-                                className="me-2"
-                                aria-label="Search"
-                                style={{width:650,height:48}}
-                            />
-                        </Form>
+                        <NavBarSearch />
 
                         <Navbar.Collapse >
                             <Nav className="me-auto d-flex" style={{marginTop:20}}>
@@ -122,37 +116,37 @@ class NavBar extends React.Component{
                                     </Dropdown.Toggle>
                                     <Dropdown.Menu>
                                         <Link href="/products/category/peripherals" passHref>
-                                        <Dropdown.Item>
+                                        <Dropdown.Item style={{color:"#444",fontSize:"0.85rem"}}>
                                             Peripherals
                                         </Dropdown.Item>
                                         </Link>
                                         <Link href="/products/category/components" passHref>
-                                            <Dropdown.Item>
+                                            <Dropdown.Item style={{color:"#444",fontSize:"0.85rem"}}>
                                                 Components
                                             </Dropdown.Item>
                                         </Link>
                                         <Link href="/products/category/smartphones and telephony" passHref>
-                                            <Dropdown.Item>
+                                            <Dropdown.Item style={{color:"#444",fontSize:"0.85rem"}}>
                                                 Smartphones and telephony
                                             </Dropdown.Item>
                                         </Link>
                                         <Link href="/products/category/selfcare" passHref>
-                                            <Dropdown.Item>
+                                            <Dropdown.Item style={{color:"#444",fontSize:"0.85rem"}}>
                                                 Selfcare
                                             </Dropdown.Item>
                                         </Link>
                                         <Link href="/products/category/computers" passHref>
-                                            <Dropdown.Item>
+                                            <Dropdown.Item style={{color:"#444",fontSize:"0.85rem"}}>
                                                 Computers
                                             </Dropdown.Item>
                                         </Link>
                                         <Link href="/products/category/gaming" passHref>
-                                            <Dropdown.Item>
+                                            <Dropdown.Item style={{color:"#444",fontSize:"0.85rem"}}>
                                                 Gaming
                                             </Dropdown.Item>
                                         </Link>
                                         <Link href="/products/category/audiovisual" passHref>
-                                            <Dropdown.Item>
+                                            <Dropdown.Item style={{color:"#444",fontSize:"0.85rem"}}>
                                                 Audiovisual
                                             </Dropdown.Item>
                                         </Link>

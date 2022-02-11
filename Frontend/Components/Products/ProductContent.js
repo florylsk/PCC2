@@ -3,7 +3,7 @@ import React
 import ProductBody
     from "./ProductBody";
 import NavBar
-    from "../NavBar";
+    from "../NavBar/NavBar";
 import {Container} from "react-bootstrap";
 import Footer
     from "../Footer";

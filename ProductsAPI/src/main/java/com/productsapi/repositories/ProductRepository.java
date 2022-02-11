@@ -29,4 +29,7 @@ public interface ProductRepository extends JpaRepository<Product,Long> {
     public List<Product> findProductByMainCategory(String mainCategory);
 
     public List<Product> findProductBySubCategoryName(String name);
+
+    @Query("select p from product p where p.name like %?1% or p.subCategory.name like %?1% or p.mainCategory.name like %?1% or p.brand like %?1%")
+    List<Product> findProductsSearch(String query);
 }

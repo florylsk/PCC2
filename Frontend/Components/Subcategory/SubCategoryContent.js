@@ -2,7 +2,7 @@ import React
     from "react";
 import {Container} from "react-bootstrap";
 import NavBar
-    from "../NavBar";
+    from "../NavBar/NavBar";
 import SubCategoryBody
     from "./SubCategoryBody";
 import Footer

@@ -108,7 +108,7 @@ class ProductsApiApplicationTests {
         reader = getClass().getResourceAsStream("/static/ProductImages/3699-xiaomi-redmi-note-9-pro-6-128gb-verde-tropical-libre-mejor-precio.jpg");
         SecondaryImage = new byte[77215];
         reader.read(SecondaryImage);
-        Product p4 = new Product("Xiaomi Redmi Note 9 Pro 6/64GB Verde Tropical Libre\n",new BigDecimal(226.22),m3,s4,MainImage,SecondaryImage,"Tempest",true,false);
+        Product p4 = new Product("Xiaomi Redmi Note 9 Pro 6/64GB Verde Tropical Libre\n",new BigDecimal(226.22),m3,s4,MainImage,SecondaryImage,"Xiaomi",true,false);
         productRepository.save(p4);
 
     }

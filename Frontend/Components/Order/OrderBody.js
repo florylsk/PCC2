@@ -21,7 +21,7 @@ import Cookies
 import OrderReceipt
     from "./OrderReceipt";
 import NavBar
-    from "../NavBar";
+    from "../NavBar/NavBar";
 import Footer
     from "../Footer";
 

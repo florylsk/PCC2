@@ -6,7 +6,7 @@ import Cookies
 import OrderBody
     from "./OrderBody";
 import NavBar
-    from "../NavBar";
+    from "../NavBar/NavBar";
 import Footer
     from "../Footer";
 import {Container} from "react-bootstrap";

@@ -51,7 +51,7 @@ export default function OrderReceipt(props){
                   <p style={{color:"#666",fontWeight:400}}><span style={{color:"#333",fontWeight:600}}>City</span>: {props.transaction.city}</p>
                   <p style={{color:"#666",fontWeight:400}}><span style={{color:"#333",fontWeight:600}}>Country</span>: {props.transaction.country}</p>
                   <p style={{color:"#666",fontWeight:400}}><span style={{color:"#333",fontWeight:600}}>Total price</span>: {props.transaction.totalPrice}€</p>
-                  <p style={{color:"#666",fontWeight:400}}><span style={{color:"#333",fontWeight:600}}>Transaction code</span>: {props.codeTransaction}</p>
+                  <p style={{color:"#666",fontWeight:400}}><span style={{color:"#333",fontWeight:600}}>Order ID</span>: {props.codeTransaction}</p>
               </Col>
           </Row>
 

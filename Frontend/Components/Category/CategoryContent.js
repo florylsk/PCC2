@@ -4,7 +4,7 @@ import CategoryBody
     from "./CategoryBody";
 import {Container} from "react-bootstrap";
 import NavBar
-    from "../NavBar";
+    from "../NavBar/NavBar";
 import Footer
     from "../Footer";
 

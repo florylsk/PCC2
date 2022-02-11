@@ -209,6 +209,12 @@ public class ProductController {
         }
     }
 
+    @GetMapping("/products/search")
+    public ResponseEntity<List<Product>> findProductsByQuery(@RequestParam("q") String productNameQuery){
+        List<Product> productsFound = productRepository.findProductsSearch(productNameQuery);
+        return new ResponseEntity<>(productsFound,HttpStatus.OK);
+    }
+
 
 
 

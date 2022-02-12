@@ -10,6 +10,8 @@ import NavBar
 import Footer
     from "../Footer";
 import {Container} from "react-bootstrap";
+import Head
+    from "next/head";
 
 
 class OrderContent extends React.Component{
@@ -88,6 +90,9 @@ class OrderContent extends React.Component{
     render() {
         return (
             <Container fluid>
+                <Head>
+                    <title>Finish Order - FOTech</title>
+                </Head>
                 <OrderBody userItems={this.state.userItems} isLoading={this.state.isLoading} user={this.user} />
             </Container>
 

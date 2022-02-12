@@ -38,9 +38,7 @@ class Footer extends React.Component{
                                 <Button className="text-start footerButton" style={{backgroundColor:"#ffffff",borderColor:"#ffffff",color:"#333",width:246}}>Premium</Button>
                             </Row>
                             <Row>
-                                <Link href="/how-to-buy">
-                                    <Button className="text-start footerButton" style={{backgroundColor:"#ffffff",borderColor:"#ffffff",color:"#333",width:246}}>How to buy</Button>
-                                </Link>
+                                <Button className="text-start footerButton" style={{backgroundColor:"#ffffff",borderColor:"#ffffff",color:"#333",width:246}}>How to buy</Button>
                             </Row>
                             <Row>
                                 <Button className="text-start footerButton" style={{backgroundColor:"#ffffff",borderColor:"#ffffff",color:"#333",width:246}}>Payment methods</Button>
@@ -130,7 +128,7 @@ class Footer extends React.Component{
                                 <h6 style={{color:"#333",fontWeight:700,fontSize:"15px",marginBottom:20}} >Social</h6>
                             </Row>
                             <Row>
-                                <Button className="text-start footerButton" style={{backgroundColor:"#ffffff",borderColor:"#ffffff",color:"#333",width:246}}><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M20.7641 7.27604V17.0915C20.8842 19.7075 17.4004 21.3836 14.9542 21.7975C13.4694 21.9829 11.9642 21.6896 10.6577 20.9605L3.60375 17.2901C3.21927 17.0717 3.00254 16.6449 3.05318 16.2058V6.21607C3.05318 4.86221 4.42199 5.73826 5.45722 6.12942L10.7804 8.34919C12.0138 8.88476 13.8136 9.57891 15.2346 9.4492C17.234 9.21194 19.1385 8.46346 20.7641 7.27604Z" fill="#333333"></path><path fillRule="evenodd" clipRule="evenodd" d="M14.5954 7.06121C15.6323 7.30914 17.1305 6.8081 18.4787 5.9025C18.8573 5.6748 18.8278 5.11671 17.8937 4.71266C16.2901 4.02023 13.5604 2.83351 13.5604 2.83351C12.3609 2.31121 11.2881 1.67531 11.2881 3.0109V5.75208C11.2881 5.75208 13.919 6.89939 14.5954 7.06121Z" fill="#333333"></path></svg> Blog</Button>
+                                <Button className="text-start footerButton" style={{backgroundColor:"#ffffff",borderColor:"#ffffff",color:"#333",width:246}}><Image src="/images/favicon_black.png" width={20} height={20}/> Blog</Button>
                             </Row>
                             <Row>
                                 <Button className="text-start footerButton" style={{backgroundColor:"#ffffff",borderColor:"#ffffff",color:"#333",width:246}}><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M16.5 2H7.5C4.5 2 2 4.5 2 7.5V16.5C2 19.5 4.5 22 7.5 22H16.5C19.5 22 22 19.5 22 16.5V7.5C22 4.5 19.5 2 16.5 2ZM20.2 16.5C20.2 18.6 18.5 20.2 16.5 20.2H7.5C5.4 20.2 3.8 18.5 3.8 16.5V7.5C3.8 5.4 5.5 3.8 7.5 3.8H16.5C18.6 3.8 20.2 5.5 20.2 7.5V16.5ZM12 6.8C9.2 6.8 6.8 9.1 6.8 12C6.8 14.8 9.1 17.2 12 17.2C14.9 17.2 17.2 14.9 17.2 12C17.2 9.2 14.8 6.8 12 6.8ZM12 15.4C10.1 15.4 8.6 13.9 8.6 12C8.6 10.1 10.1 8.6 12 8.6C13.9 8.6 15.4 10.1 15.4 12C15.4 13.9 13.9 15.4 12 15.4ZM18.7 6.6C18.7 7.31797 18.118 7.9 17.4 7.9C16.682 7.9 16.1 7.31797 16.1 6.6C16.1 5.88203 16.682 5.3 17.4 5.3C18.118 5.3 18.7 5.88203 18.7 6.6Z" fill="#333333"></path></svg> Instagram</Button>
@@ -150,7 +148,7 @@ class Footer extends React.Component{
                         </Col>
                         <Col>
                             <Row style={{marginBottom:120}}>
-                                <h6 style={{color:"#333",fontWeight:700,fontSize:"15px",marginBottom:20}} >ComponentsPC in</h6>
+                                <h6 style={{color:"#333",fontWeight:700,fontSize:"15px",marginBottom:20}} >FOTech in</h6>
                                 <Dropdown >
                                     <Dropdown.Toggle className="text-start" style={{width:260,height:43,backgroundColor:"#ffffff",color:"#888",borderColor:"#888"}}>
                                         Spain <MdKeyboardArrowDown />
@@ -176,8 +174,8 @@ class Footer extends React.Component{
                     <hr style={{marginTop:100,position:"absolute"}} width="100%"/>
                 </Container>
                 <Container>
-                    <Navbar style={{marginTop:50}}>
-                        <p style={{color:"#000",fontSize:"13px",marginLeft:150,marginTop:10}}>PC Componentes y Multimedia SLU CIF B73347494. AVDA Europa, Parcela 2-5 y 2-6. Polígono industrial Las Salinas, 30840, Alhama de Murcia, Murcia. ESPAÑA.</p>
+                    <Navbar style={{marginTop:50}} className="align-items-center justify-content-center">
+                        <p  style={{color:"#000",fontSize:"13px",marginTop:10}}>Developed by Florinel Olteanu &copy; 2022 FO</p>
                     </Navbar>
                 </Container>
 

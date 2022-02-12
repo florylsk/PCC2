@@ -26,11 +26,11 @@ public class Product {
     @ManyToOne
     private SubCategory subCategory;
 
-    @Column(length=16777215)//length for mediumblob
+    @Column(length=77215)//length for mediumblob
     @Lob
     private byte[] mainImage;
 
-    @Column(length=16777215)//length for mediumblob
+    @Column(length=77215)//length for mediumblob
     @Lob
     private byte[] secondaryImage;
 

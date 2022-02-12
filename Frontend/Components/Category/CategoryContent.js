@@ -7,7 +7,7 @@ import NavBar
     from "../NavBar/NavBar";
 import Footer
     from "../Footer";
-
+import Head from "next/head"
 
 class CategoryContent extends React.Component{
 
@@ -90,6 +90,9 @@ class CategoryContent extends React.Component{
     render() {
         return(
             <Container  fluid>
+                <Head>
+                    <title>{this.props.categoryName === null ? "FOTech" : (this.props.categoryName?.charAt(0).toUpperCase() + this.props.categoryName?.slice(1) + " - " + "FOTech")}</title>
+                </Head>
                 <NavBar />
                 <CategoryBody subCategories={this.state.Subcategories} isLoading={this.state.isLoading} mainCategory={this.props.categoryName} />
                 <Footer />

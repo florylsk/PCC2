@@ -7,6 +7,8 @@ import SubCategoryBody
     from "./SubCategoryBody";
 import Footer
     from "../Footer";
+import Head
+    from "next/head";
 
 
 
@@ -95,6 +97,9 @@ class SubCategoryContent extends React.Component{
     render() {
         return(
             <Container fluid>
+                <Head>
+                    <title>{this.props.subCategory === null ? "FOTech" : (this.props.subCategory.charAt(0).toUpperCase() + this.props.subCategory.slice(1) + " - " + "FOTech")}</title>
+                </Head>
                 <NavBar/>
                 <SubCategoryBody products={this.state.products} subCategory={this.props.subCategory} mainCategory={this.props.mainCategory} />
                 <Footer />

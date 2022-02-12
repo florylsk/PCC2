@@ -88,7 +88,7 @@ class ProductContent extends React.Component{
         return(
             <Container fluid>
                 <Head>
-                    <title>{this.state.product === null ? "ComponentsPC" : (this.state.product.name)}</title>
+                    <title>{this.state.product === null ? "FOTech" : (this.state.product.name)}</title>
                 </Head>
                 <NavBar product={true} productContent={this.state.product} isLoading={this.state.isLoading} />
                 <ProductBody product={this.state.product} isLoading={this.state.isLoading} user={this.user}/>

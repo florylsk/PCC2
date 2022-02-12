@@ -6,11 +6,16 @@ import {
 } from "react-bootstrap";
 import React
     from "react";
+import Head
+    from "next/head";
 
 
 export default function OrderReceipt(props){
     return(
       <Container>
+          <Head>
+              <title>Receipt - FOTech</title>
+          </Head>
           <Row>
               <h4 className="text-center" style={{color:"#444"}}>Enjoy your products!</h4>
           </Row>

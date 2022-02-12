@@ -18,7 +18,7 @@ public class SubCategory {
     @ManyToOne
     private MainCategory mainCategory;
 
-    @Column(length=16777215)//length for mediumblob
+    @Column(length=150000)//length for mediumblob
     @Lob
     private byte[] image;
 

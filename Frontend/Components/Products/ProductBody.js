@@ -162,7 +162,7 @@ export default function ProductBody(props){
                             <AiOutlineStar />
                             <span style={{color:"#888",fontSize:13}}>&nbsp;2 opinions | Review </span>
                         </div>
-                        <p style={{color:"#888",fontSize:14,marginTop:7}}>Sold and shipped by <span style={{fontWeight:700}}>ComponentsPC</span></p>
+                        <p style={{color:"#888",fontSize:14,marginTop:7}}>Sold and shipped by <span style={{fontWeight:700}}>FOTech</span></p>
                     </Row>
                     <Row style={{marginTop:20}}>
                         <Col>

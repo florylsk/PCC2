@@ -6,6 +6,7 @@ import com.userapi.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -29,6 +30,9 @@ public class UserController {
 
     @PostMapping("/users/register")
     public ResponseEntity<User> addUser(@RequestBody User user){
+        BCryptPasswordEncoder passwordEncoder= new BCryptPasswordEncoder();
+        String encodedPass = passwordEncoder.encode(user.getHashedPassword());
+        user.setHashedPassword(encodedPass);
         user.setAdmin(false);
         user.setProductsBought(new ArrayList<Product>());
         user.setProductsOnShoppingCart(new ArrayList<Product>());
@@ -44,10 +48,12 @@ public class UserController {
 
     @PostMapping("/users/login")
     public ResponseEntity<User> checkUserLogin(@RequestBody User user){
+        BCryptPasswordEncoder passwordEncoder= new BCryptPasswordEncoder();
+
         Optional<User> userData = Optional.ofNullable(userRepository.findUserByMail(user.getMail()));
         if (userData.isPresent()){
             User userFound = userData.get();
-            if (user.getHashedPassword().equals(userFound.getHashedPassword())){
+            if (passwordEncoder.matches(user.getHashedPassword(),userFound.getHashedPassword())){
                 return new ResponseEntity<>(userFound,HttpStatus.OK);
             }
             else{

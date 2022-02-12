@@ -59,7 +59,7 @@ class HomePage extends React.Component{
         }
         this.timerID = setInterval(
             ()=> this.checkProducts(),
-            10000
+            200
         )
         if (errorHappened){
             this.setState({RecommendedProducts:[],InterestingProducts:[],isLoading:true});
@@ -70,6 +70,7 @@ class HomePage extends React.Component{
     }
 
     async checkProducts(){
+        if(this.state.RecommendedProducts.length == 0 || this.state.InterestingProducts.length == 0){
         let response=null;
         let errorHappened=false;
         try{
@@ -114,6 +115,7 @@ class HomePage extends React.Component{
         else{
             this.setState({RecommendedProducts:RecommendedProducts,InterestingProducts:InterestingProducts,isLoading:false});
         }
+        }
     }
 
     componentWillUnmount() {
@@ -125,9 +127,9 @@ class HomePage extends React.Component{
         return(
             <Container fluid>
                 <Head>
-                    <title>ComponentsPC</title>
+                    <title>FOTech</title>
                 </Head>
-                <NavBar />
+                <NavBar showMiddle={true} />
                 <HomeButtons />
                 <HomeProducts RecommendedProducts={this.state.RecommendedProducts} InterestingProducts={this.state.InterestingProducts} isLoading={this.state.isLoading} />
                 <Footer />

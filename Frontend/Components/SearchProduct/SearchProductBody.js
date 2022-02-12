@@ -13,6 +13,8 @@ import Footer
 import Link
     from "next/link";
 import {AiFillStar} from "react-icons/ai";
+import Head
+    from "next/head";
 
 
 
@@ -22,6 +24,9 @@ export default function SearchProductBody(props){
 
     return(
         <Container fluid>
+            <Head>
+                <title>Search - FOTech</title>
+            </Head>
             <NavBar />
             <Container>
 

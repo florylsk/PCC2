@@ -65,6 +65,10 @@ class ProductsApiApplicationTests {
         SubCategory playstation= new SubCategory("Playstation",gaming);
         SubCategory xbox= new SubCategory("Xbox",gaming);
         SubCategory nintendo= new SubCategory("Nintendo",gaming);
+        SubCategory cpus = new SubCategory("Processors",components);
+        SubCategory gpus = new SubCategory("Graphic Cards", components);
+        SubCategory ram = new SubCategory("RAM", components);
+
 
         //subcategory images
         InputStream reader = getClass().getResourceAsStream("/static/ProductImages/familia-teclados-768x504-producto.jpg");
@@ -76,6 +80,21 @@ class ProductsApiApplicationTests {
         image = new byte[77215];
         reader.read(image);
         smartphones.setImage(image);
+
+        reader = getClass().getResourceAsStream("/static/ProductImages/familia-memorias_ram-500x500-producto.jpg");
+        image = new byte[77215];
+        reader.read(image);
+        ram.setImage(image);
+
+        reader = getClass().getResourceAsStream("/static/ProductImages/familia-procesadores-500x500-producto.jpg");
+        image = new byte[77215];
+        reader.read(image);
+        cpus.setImage(image);
+
+        reader = getClass().getResourceAsStream("/static/ProductImages/familia-tarjetas_graficas-500x500-producto.jpg");
+        image = new byte[77215];
+        reader.read(image);
+        gpus.setImage(image);
 
         reader = getClass().getResourceAsStream("/static/ProductImages/familia-altavoces-768x504-producto.jpg");
         image = new byte[77215];
@@ -168,6 +187,9 @@ class ProductsApiApplicationTests {
         subCategoryRepository.save(playstation);
         subCategoryRepository.save(xbox);
         subCategoryRepository.save(nintendo);
+        subCategoryRepository.save(ram);
+        subCategoryRepository.save(cpus);
+        subCategoryRepository.save(gpus);
 
         //products
         reader = getClass().getResourceAsStream("/static/ProductImages/1667-tempest-x20w-vigilant-raton-gaming-inalambrico-opiniones.jpg");
@@ -260,6 +282,120 @@ class ProductsApiApplicationTests {
         SecondaryImage = new byte[77215];
         reader.read(SecondaryImage);
         Product p16 = new Product("Tempest Vapor USB 3.0 con Ventana RGB Negro",new BigDecimal(54.99),components,towers,MainImage,SecondaryImage,"Tempest",false,true);
+
+        reader = getClass().getResourceAsStream("/static/ProductImages/1183-amd-ryzen-5-5600g-440ghz.jpg");
+        MainImage = new byte[77215];
+        reader.read(MainImage);
+        reader = getClass().getResourceAsStream("/static/ProductImages/1183-amd-ryzen-5-5600g-440ghz.jpg");
+        SecondaryImage = new byte[77215];
+        reader.read(SecondaryImage);
+        Product p17 = new Product("AMD Ryzen 5 5600G 4.40GHz",new BigDecimal(243.90),components,cpus,MainImage,SecondaryImage,"AMD",false,false);
+
+        reader = getClass().getResourceAsStream("/static/ProductImages/191-intel-core-i7-12700k-50-ghz.jpg");
+        MainImage = new byte[77215];
+        reader.read(MainImage);
+        reader = getClass().getResourceAsStream("/static/ProductImages/191-intel-core-i7-12700k-50-ghz.jpg");
+        SecondaryImage = new byte[77215];
+        reader.read(SecondaryImage);
+        Product p18 = new Product("Intel Core i7-12700K 5.0 GHz",new BigDecimal(446.24),components,cpus,MainImage,SecondaryImage,"Intel",false,false);
+
+        reader = getClass().getResourceAsStream("/static/ProductImages/1571-msi-geforce-rtx-3070-ti-ventus-3x-oc-8gb-gddr6x.jpg");
+        MainImage = new byte[77215];
+        reader.read(MainImage);
+        reader = getClass().getResourceAsStream("/static/ProductImages/3611-msi-geforce-rtx-3070-ti-ventus-3x-oc-8gb-gddr6x-mejor-precio.jpg");
+        SecondaryImage = new byte[77215];
+        reader.read(SecondaryImage);
+        Product p19 = new Product("MSI GeForce RTX 3070 Ti VENTUS 3X OC 8GB GDDR6X",new BigDecimal(899.99),components,gpus,MainImage,SecondaryImage,"MSI",false,true);
+
+        reader = getClass().getResourceAsStream("/static/ProductImages/1228-powercolor-fighter-amd-radeon-rx-6600-8gb-gddr6.jpg");
+        MainImage = new byte[77215];
+        reader.read(MainImage);
+        reader = getClass().getResourceAsStream("/static/ProductImages/253-powercolor-fighter-amd-radeon-rx-6600-8gb-gddr6-comprar.jpg");
+        SecondaryImage = new byte[77215];
+        reader.read(SecondaryImage);
+        Product p20 = new Product("PowerColor FIGHTER AMD Radeon RX 6600 8GB GDDR6",new BigDecimal(479.90),components,gpus,MainImage,SecondaryImage,"PowerColor",false,false);
+
+        reader = getClass().getResourceAsStream("/static/ProductImages/1.jpg");
+        MainImage = new byte[77215];
+        reader.read(MainImage);
+        reader = getClass().getResourceAsStream("/static/ProductImages/2.jpg");
+        SecondaryImage = new byte[77215];
+        reader.read(SecondaryImage);
+        Product p21 = new Product("Team Group Delta White RGB DDR4 3200 PC4-25600 16GB 2x8GB CL16",new BigDecimal(99.83),components,ram,MainImage,SecondaryImage,"Team Group",false,false);
+
+        reader = getClass().getResourceAsStream("/static/ProductImages/1302-kingston-fury-beast-ddr4-2666-mhz-8gb-cl16.jpg");
+        MainImage = new byte[77215];
+        reader.read(MainImage);
+        reader = getClass().getResourceAsStream("/static/ProductImages/3514-kingston-fury-beast-ddr4-2666-mhz-8gb-cl16-mejor-precio.jpg");
+        SecondaryImage = new byte[77215];
+        reader.read(SecondaryImage);
+        Product p22 = new Product("Kingston FURY Beast DDR4 2666 MHz 8GB CL16",new BigDecimal(34.80),components,ram,MainImage,SecondaryImage,"Kingston",false,false);
+
+        reader = getClass().getResourceAsStream("/static/ProductImages/134-sony-pack-playstation-5-edicion-digital-dualsense-midnight-black.jpg");
+        MainImage = new byte[77215];
+        reader.read(MainImage);
+        reader = getClass().getResourceAsStream("/static/ProductImages/7657-sony-pack-playstation-5-edicion-digital-dualsense-midnight-black-review.jpg");
+        SecondaryImage = new byte[77215];
+        reader.read(SecondaryImage);
+        Product p23 = new Product("Sony Pack PlayStation 5 Edición Digital + DualSense Midnight Black",new BigDecimal(469.90),gaming,playstation,MainImage,SecondaryImage,"Sony",false,true);
+
+        reader = getClass().getResourceAsStream("/static/ProductImages/1144-microsoft-xbox-series-s-512gb.jpg");
+        MainImage = new byte[77215];
+        reader.read(MainImage);
+        reader = getClass().getResourceAsStream("/static/ProductImages/2233-microsoft-xbox-series-s-512gb-comprar.jpg");
+        SecondaryImage = new byte[77215];
+        reader.read(SecondaryImage);
+        Product p24 = new Product("Microsoft Xbox Series S 512GB",new BigDecimal(299),gaming,xbox,MainImage,SecondaryImage,"Microsoft",false,true);
+
+        reader = getClass().getResourceAsStream("/static/ProductImages/consola-nintendo-switch-1351124-81-l.jpg");
+        MainImage = new byte[77215];
+        reader.read(MainImage);
+        reader = getClass().getResourceAsStream("/static/ProductImages/1 (1).jpg");
+        SecondaryImage = new byte[77215];
+        reader.read(SecondaryImage);
+        Product p25 = new Product("Nintendo Switch Azul Neón/Rojo Neón V2",new BigDecimal(292.98),gaming,nintendo,MainImage,SecondaryImage,"Nintendo",false,true);
+
+        reader = getClass().getResourceAsStream("/static/ProductImages/1100-hp-15s-fq2159ns-intel-core-i3-1115g4-8gb-256gb-ssd-156.jpg");
+        MainImage = new byte[77215];
+        reader.read(MainImage);
+        reader = getClass().getResourceAsStream("/static/ProductImages/2730-hp-15s-fq2159ns-intel-core-i3-1115g4-8gb-256gb-ssd-156-comprar.jpg");
+        SecondaryImage = new byte[77215];
+        reader.read(SecondaryImage);
+        Product p26 = new Product("HP 15S-fq2159ns Intel Core i3-1115G4/8GB/256GB SSD/15.6",new BigDecimal(479),computers,laptops,MainImage,SecondaryImage,"HP",false,false);
+
+        reader = getClass().getResourceAsStream("/static/ProductImages/1692-msi-mag-codex-5-11tc-460eu-intel-core-i5-11400f-16gb-512gb-ssd-rtx-3060.jpg");
+        MainImage = new byte[77215];
+        reader.read(MainImage);
+        reader = getClass().getResourceAsStream("/static/ProductImages/2242-msi-mag-codex-5-11tc-460eu-intel-core-i5-11400f-16gb-512gb-ssd-rtx-3060-comprar.jpg");
+        SecondaryImage = new byte[77215];
+        reader.read(SecondaryImage);
+        Product p27 = new Product("MSI MAG Codex 5 11TG-814EU Intel Core i5-11400F/16GB/512GB SSD/RTX 3060 Ti",new BigDecimal(1499),computers,desktops,MainImage,SecondaryImage,"MSI",false,false);
+
+        reader = getClass().getResourceAsStream("/static/ProductImages/1810-sony-kd65x80jpaep-65-led-ultrahd-4k-hdr.jpg");
+        MainImage = new byte[77215];
+        reader.read(MainImage);
+        reader = getClass().getResourceAsStream("/static/ProductImages/2849-sony-kd65x80jpaep-65-led-ultrahd-4k-hdr-comprar.jpg");
+        SecondaryImage = new byte[77215];
+        reader.read(SecondaryImage);
+        Product p28 = new Product("Sony KD65X80JPAEP 65 LED UltraHD 4K HDR",new BigDecimal(948.99),audiovisual,tVs,MainImage,SecondaryImage,"Sony",false,false);
+
+        reader = getClass().getResourceAsStream("/static/ProductImages/1176-yamaha-a-s501-amplificador-integrado-2x120w-negro.jpg");
+        MainImage = new byte[77215];
+        reader.read(MainImage);
+        reader = getClass().getResourceAsStream("/static/ProductImages/2637-yamaha-a-s501-amplificador-integrado-2x120w-negro-comprar.jpg");
+        SecondaryImage = new byte[77215];
+        reader.read(SecondaryImage);
+        Product p29 = new Product("Yamaha A-S501 Amplificador Integrado 2x120W Negro",new BigDecimal(456.91),audiovisual,homeCinema,MainImage,SecondaryImage,"Yamaha",false,false);
+
+        reader = getClass().getResourceAsStream("/static/ProductImages/1305-samsung-hw-a430-zf-barra-de-sonido-21-bluetooth-270w.jpg");
+        MainImage = new byte[77215];
+        reader.read(MainImage);
+        reader = getClass().getResourceAsStream("/static/ProductImages/1305-samsung-hw-a430-zf-barra-de-sonido-21-bluetooth-270w.jpg");
+        SecondaryImage = new byte[77215];
+        reader.read(SecondaryImage);
+        Product p30 = new Product("Samsung HW-A430/ZF Barra de Sonido 2.1 Bluetooth 270W",new BigDecimal(143.91),audiovisual,tvSpeakers,MainImage,SecondaryImage,"Samsung",false,false);
+
+
         productRepository.save(p1);
         productRepository.save(p2);
         productRepository.save(p3);
@@ -271,6 +407,21 @@ class ProductsApiApplicationTests {
         productRepository.save(p13);
         productRepository.save(p15);
         productRepository.save(p16);
+        productRepository.save(p17);
+        productRepository.save(p18);
+        productRepository.save(p19);
+        productRepository.save(p20);
+        productRepository.save(p21);
+        productRepository.save(p22);
+        productRepository.save(p23);
+        productRepository.save(p24);
+        productRepository.save(p25);
+        productRepository.save(p26);
+        productRepository.save(p27);
+        productRepository.save(p28);
+        productRepository.save(p29);
+        productRepository.save(p30);
+
 
     }
 

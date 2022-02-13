@@ -43,31 +43,26 @@ export default function OffCanvasLogin(props){
                                     </svg>My Account
                             </Accordion.Header>
                             <Accordion.Body>
-                                <Link href="/users/panel/my-profile">
+                                
                                     <Button style={{color:"#505050",transition:"color .25s ease-out",backgroundColor:"transparent",borderColor:"transparent",width:"100%",height:"32px",fontSize:"0.95rem"}} className="text-start offcanvas-login-link">
                                         My profile
                                     </Button>
-                                </Link>
-                                <Link href="/users/panel/my-profile">
+                                
                                     <Button style={{color:"#505050",transition:"color .25s ease-out",backgroundColor:"transparent",borderColor:"transparent",width:"100%",height:"32px",fontSize:"0.95rem"}} className="text-start offcanvas-login-link">
                                         Wish list
                                     </Button>
-                                </Link>
-                                <Link href="/users/panel/my-profile">
+
                                     <Button style={{color:"#505050",transition:"color .25s ease-out",backgroundColor:"transparent",borderColor:"transparent",width:"100%",height:"32px",fontSize:"0.95rem"}} className="text-start offcanvas-login-link">
                                         Messages
                                     </Button>
-                                </Link>
-                                <Link href="/users/panel/my-profile">
+
                                     <Button style={{color:"#505050",transition:"color .25s ease-out",backgroundColor:"transparent",borderColor:"transparent",width:"100%",height:"32px",fontSize:"0.95rem"}} className="text-start offcanvas-login-link">
                                         Reviews
                                     </Button>
-                                </Link>
-                                <Link href="/users/panel/my-profile">
+
                                     <Button style={{color:"#505050",transition:"color .25s ease-out",backgroundColor:"transparent",borderColor:"transparent",width:"100%",height:"32px",fontSize:"0.95rem"}} className="text-start offcanvas-login-link">
                                         My premium
                                     </Button>
-                                </Link>
                             </Accordion.Body>
                         </Accordion.Item>
                         <Accordion.Item eventKey="1" style={{borderColor:"transparent",backgroundColor:"transparent",marginLeft:-13}}>
@@ -81,31 +76,27 @@ export default function OffCanvasLogin(props){
                                 Orders and refunds
                             </Accordion.Header>
                             <Accordion.Body>
-                                <Link href="/users/panel/my-profile">
+                                
                                     <Button style={{color:"#505050",transition:"color .25s ease-out",backgroundColor:"transparent",borderColor:"transparent",width:"100%",height:"32px",fontSize:"0.95rem"}} className="text-start offcanvas-login-link">
                                         Orders, refunds and bills
                                     </Button>
-                                </Link>
-                                <Link href="/users/panel/my-profile">
+
                                     <Button style={{color:"#505050",transition:"color .25s ease-out",backgroundColor:"transparent",borderColor:"transparent",width:"100%",height:"32px",fontSize:"0.95rem"}} className="text-start offcanvas-login-link">
                                         Refund history
                                     </Button>
-                                </Link>
-                                <Link href="/users/panel/my-profile">
+
                                     <Button style={{color:"#505050",transition:"color .25s ease-out",backgroundColor:"transparent",borderColor:"transparent",width:"100%",height:"32px",fontSize:"0.95rem"}} className="text-start offcanvas-login-link">
                                         Pre-orders
                                     </Button>
-                                </Link>
-                                <Link href="/users/panel/my-profile">
+
                                     <Button style={{color:"#505050",transition:"color .25s ease-out",backgroundColor:"transparent",borderColor:"transparent",width:"100%",height:"32px",fontSize:"0.95rem"}} className="text-start offcanvas-login-link">
                                         Digital products
                                     </Button>
-                                </Link>
-                                <Link href="/users/panel/my-profile">
+
                                     <Button style={{color:"#505050",transition:"color .25s ease-out",backgroundColor:"transparent",borderColor:"transparent",width:"100%",height:"32px",fontSize:"0.95rem"}} className="text-start offcanvas-login-link">
                                         Download codes
                                     </Button>
-                                </Link>
+
                             </Accordion.Body>
                         </Accordion.Item>
                         <Accordion.Item eventKey="2" style={{borderColor:"transparent",backgroundColor:"transparent",marginLeft:-13}}>
@@ -119,26 +110,22 @@ export default function OffCanvasLogin(props){
                                 Payments
                             </Accordion.Header>
                             <Accordion.Body>
-                                <Link href="/users/panel/my-profile">
+                                
                                     <Button style={{color:"#505050",transition:"color .25s ease-out",backgroundColor:"transparent",borderColor:"transparent",width:"100%",height:"32px",fontSize:"0.95rem"}} className="text-start offcanvas-login-link">
                                         Linked credit cards
                                     </Button>
-                                </Link>
-                                <Link href="/users/panel/my-profile">
+
                                     <Button style={{color:"#505050",transition:"color .25s ease-out",backgroundColor:"transparent",borderColor:"transparent",width:"100%",height:"32px",fontSize:"0.95rem"}} className="text-start offcanvas-login-link">
                                         Discount coupons
                                     </Button>
-                                </Link>
-                                <Link href="/users/panel/my-profile">
+
                                     <Button style={{color:"#505050",transition:"color .25s ease-out",backgroundColor:"transparent",borderColor:"transparent",width:"100%",height:"32px",fontSize:"0.95rem"}} className="text-start offcanvas-login-link">
                                         Positive balance
                                     </Button>
-                                </Link>
-                                <Link href="/users/panel/my-profile">
+
                                     <Button style={{color:"#505050",transition:"color .25s ease-out",backgroundColor:"transparent",borderColor:"transparent",width:"100%",height:"32px",fontSize:"0.95rem"}} className="text-start offcanvas-login-link">
                                         Gift cards
                                     </Button>
-                                </Link>
                             </Accordion.Body>
                         </Accordion.Item>
                         <Accordion.Item eventKey="3" style={{borderColor:"transparent",backgroundColor:"transparent",marginLeft:-13}}>
@@ -152,26 +139,22 @@ export default function OffCanvasLogin(props){
                                 Need help?
                             </Accordion.Header>
                             <Accordion.Body>
-                                <Link href="/users/panel/my-profile">
+                                
                                     <Button style={{color:"#505050",transition:"color .25s ease-out",backgroundColor:"transparent",borderColor:"transparent",width:"100%",height:"32px",fontSize:"0.95rem"}} className="text-start offcanvas-login-link">
                                         Refunds and warranty
                                     </Button>
-                                </Link>
-                                <Link href="/users/panel/my-profile">
+
                                     <Button style={{color:"#505050",transition:"color .25s ease-out",backgroundColor:"transparent",borderColor:"transparent",width:"100%",height:"32px",fontSize:"0.95rem"}} className="text-start offcanvas-login-link">
                                         Repairment service
                                     </Button>
-                                </Link>
-                                <Link href="/users/panel/my-profile">
+
                                     <Button style={{color:"#505050",transition:"color .25s ease-out",backgroundColor:"transparent",borderColor:"transparent",width:"100%",height:"32px",fontSize:"0.95rem"}} className="text-start offcanvas-login-link">
                                         Refund a gift
                                     </Button>
-                                </Link>
-                                <Link href="/users/panel/my-profile">
+
                                     <Button style={{color:"#505050",transition:"color .25s ease-out",backgroundColor:"transparent",borderColor:"transparent",width:"100%",height:"32px",fontSize:"0.95rem"}} className="text-start offcanvas-login-link">
                                         Support center
                                     </Button>
-                                </Link>
                             </Accordion.Body>
                         </Accordion.Item>
                         <Accordion.Item onClick={props.handleLogout} eventKey="4" style={{borderColor:"transparent",backgroundColor:"transparent",marginLeft:-13}} className="offcanvas-login-logout">

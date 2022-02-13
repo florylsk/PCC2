@@ -13,6 +13,7 @@ import React
     from "react";
 import {MdKeyboardArrowDown} from "react-icons/md"
 import Link from 'next/link'
+import {AiFillGithub} from "react-icons/ai";
 
 class Footer extends React.Component{
     constructor(props) {
@@ -175,7 +176,7 @@ class Footer extends React.Component{
                 </Container>
                 <Container>
                     <Navbar style={{marginTop:50}} className="align-items-center justify-content-center">
-                        <p  style={{color:"#000",fontSize:"13px",marginTop:10}}>Developed by Florinel Olteanu &copy; 2022 FO</p>
+                        <p  style={{color:"#000",fontSize:"13px",marginTop:10}}>Developed by Florinel Olteanu &copy; 2022 FO <a href="https://github.com/florylsk/PCC2" rel="noreferrer" target="_blank" style={{marginLeft:500}}><AiFillGithub color="#000" /> source code available here</a></p>
                     </Navbar>
                 </Container>
 

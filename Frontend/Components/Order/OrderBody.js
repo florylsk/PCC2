@@ -9,7 +9,10 @@ import {
 } from "react-bootstrap";
 import {MdLocalShipping} from "react-icons/md";
 import {GiRecycle} from "react-icons/gi";
-import {AiFillSafetyCertificate} from "react-icons/ai";
+import {
+    AiFillGithub,
+    AiFillSafetyCertificate
+} from "react-icons/ai";
 import React
     from "react";
 import Link
@@ -294,7 +297,7 @@ export default function OrderBody(props){
                 </Form>
                 <hr style={{marginTop:120,position:"absolute"}} width="100%"/>
                 <Navbar style={{marginTop:120}}>
-                    <p style={{color:"#000",fontSize:"13px",marginTop:10,marginLeft:700}}>PC Componentes y Multimedia SLU CIF B73347494. AVDA Europa, Parcela 2-5 y 2-6. Polígono industrial Las Salinas, 30840, Alhama de Murcia, Murcia. ESPAÑA.</p>
+                    <p  style={{color:"#000",fontSize:"13px",marginTop:10}}>Developed by Florinel Olteanu &copy; 2022 FO <a href="https://github.com/florylsk/PCC2" rel="noreferrer" target="_blank" style={{marginLeft:500}}><AiFillGithub color="#000" /> source code available here</a></p>
                 </Navbar>
                 <hr style={{marginTop:-10,position:"absolute"}} width="100%"/>
             </Container>
